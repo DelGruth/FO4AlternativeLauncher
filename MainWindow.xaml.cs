@@ -372,12 +372,12 @@ namespace FO4AlternativeLauncher
 
             if (Convert.ToInt32(GlobalVar.bFull_Screen.VarValue) == 0)
             {
-                WindowedMode.IsChecked = false;
+                WindowedMode.IsChecked = true;
 
             }
             else if (Convert.ToInt32(GlobalVar.bFull_Screen.VarValue) == 1)
             {
-                WindowedMode.IsChecked = true;
+                WindowedMode.IsChecked = false;
             }
 
             if(Convert.ToInt32(GlobalVar.bBorderless.VarValue) == 0)
@@ -386,8 +386,7 @@ namespace FO4AlternativeLauncher
 
             }else
             {
-                Borderless.IsChecked = false;
-
+                Borderless.IsChecked = true;
             }
 
             if (Convert.ToInt32(GlobalVar.bLensFlare.VarValue) == 0)
