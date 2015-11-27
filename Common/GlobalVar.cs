@@ -255,14 +255,43 @@ namespace FO4AlternativeLauncher.Common
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 })
 
         };
-        public static AppSettingFormat bMultiThreadedRendering= new AppSettingFormat()
+        public static AppSettingFormat bMultiThreadedRendering = new AppSettingFormat()
         {
             Section = "Display",
             VarName = "bMultiThreadedRendering",
             VarValue = 0.ToString(),
-            vsc = new global::VisualSettingConverter(new string[2] { "0","1"},new int[2] { 0,1}),
-            pref =false
-        };
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bEssentialTakeNoDamage = new AppSettingFormat()
+        {
+            Section = "Gameplay",
+            VarName = "bEssentialTakeNoDamage",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "1", "0" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bDisableAllGore = new AppSettingFormat()
+        {
+            Section = "General",
+            VarName = "bDisableAllGore",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bGamepadEnable = new AppSettingFormat()
+        {
+            Section = "General",
+            VarName = "bGamepadEnable",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+        }; public static AppSettingFormat bCrosshairEnabled = new AppSettingFormat()
+        {
+            Section = "MAIN",
+            VarName = "bCrosshairEnabled",
+            VarValue =  1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+        }; 
+
+
+
 
 
         #endregion
@@ -276,7 +305,7 @@ namespace FO4AlternativeLauncher.Common
                 bMBEnable, bEnableRainOcclusion, bEnableWetnessMaterials, bScreenSpaceReflections, bBorderless, bFull_Screen
                 ,Vsync,FOV_1st,FOV_3rd,MaxParticles,ObjectFade,ActorFade,ItemFade,GrassFade,iNumHWThreads,iNumThreads,
                 iMinGrassSize, bAllowCreateGrass,bAllowLoadGrass,iMaxGrassTypesPerTexure,SkipIntro ,bEnablePlatform
-                ,bEnableAnalytics,bShowTutorials,bMaximizeWindow,bMultiThreadedRendering};
+                ,bEnableAnalytics,bShowTutorials,bMaximizeWindow,bMultiThreadedRendering,bEssentialTakeNoDamage};
 
 
         public const int Vsync_Off = 0;

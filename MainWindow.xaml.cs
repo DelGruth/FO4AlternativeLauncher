@@ -531,6 +531,14 @@ namespace FO4AlternativeLauncher
             {
                 EnableGamePad.IsChecked = false;
             }
+            if (Convert.ToInt32(GlobalVar.bCrosshairEnabled.VarValue) == 1)
+            {
+                EnableCrossair.IsChecked = true;
+            }
+            else
+            {
+                EnableCrossair.IsChecked = false;
+            }
         }
 
         //Export a custom preset of values
@@ -714,6 +722,7 @@ namespace FO4AlternativeLauncher
         void SetAllVarValues()
         {
             try {
+                SetEnableCrossair();
                 SetEnableGamepad();
                 SetDisableGore();
                 SetEssentialNPCKillable();
@@ -735,6 +744,11 @@ namespace FO4AlternativeLauncher
                 MessageBox.Show(e.Message + " || " + e.Source.ToString() + " || " + e.StackTrace);
             }
 
+        }
+
+        private void SetEnableCrossair()
+        {
+            GlobalVar.bCrosshairEnabled.ChangeValueAuto(Convert.ToInt32(EnableCrossair.IsChecked));
         }
 
         private void SetEnableGamepad()
