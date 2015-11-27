@@ -255,13 +255,20 @@ namespace FO4AlternativeLauncher.Common
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 })
 
         };
-
+        public static AppSettingFormat bMultiThreadedRendering= new AppSettingFormat()
+        {
+            Section = "Display",
+            VarName = "bMultiThreadedRendering",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0","1"},new int[2] { 0,1}),
+            pref =false
+        };
 
 
         #endregion
 
         public readonly List<AppSettingFormat> AllFalloutSettings = new List<AppSettingFormat>()
-        {   TextureQuality, ShadowQuality, iMaxAnisotropy,  sAntiAliasing, Resolution_Height, Resolution_Width, bSAOEnable,
+        {       TextureQuality, ShadowQuality, iMaxAnisotropy,  sAntiAliasing, Resolution_Height, Resolution_Width, bSAOEnable,
                 bScreenSpaceBokeh, bDoDepthOfField, iVolumetricLightingQuality, bVolumetricLightingEnable, bScreenSpaceSubsurfaceScattering,
                 bForceIgnoreSmoothness, uMaxSkinDecalsPerActor, uMaxSkinDecals, uMaxDecals, bSkinnedDecals, bDecals,
                 iMaxSkinDecalsPerFrame, iMaxDecalsPerFrame, iDirShadowSplits, fDirShadowDistance, fDirShadowDistance,
@@ -269,7 +276,7 @@ namespace FO4AlternativeLauncher.Common
                 bMBEnable, bEnableRainOcclusion, bEnableWetnessMaterials, bScreenSpaceReflections, bBorderless, bFull_Screen
                 ,Vsync,FOV_1st,FOV_3rd,MaxParticles,ObjectFade,ActorFade,ItemFade,GrassFade,iNumHWThreads,iNumThreads,
                 iMinGrassSize, bAllowCreateGrass,bAllowLoadGrass,iMaxGrassTypesPerTexure,SkipIntro ,bEnablePlatform
-                ,bEnableAnalytics,bShowTutorials,bMaximizeWindow};
+                ,bEnableAnalytics,bShowTutorials,bMaximizeWindow,bMultiThreadedRendering};
 
 
         public const int Vsync_Off = 0;
@@ -509,7 +516,7 @@ namespace FO4AlternativeLauncher.Common
             VarName = "bLensFlare",
             VarValue = 0.ToString()
         };
-
+   
         #endregion end fallout4 settings
 
         #region Fallout4 Launcher Default values

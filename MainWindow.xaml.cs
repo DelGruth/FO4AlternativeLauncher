@@ -505,6 +505,16 @@ namespace FO4AlternativeLauncher
             {
                 Stretch_to_fit.IsChecked = false;
             }
+
+
+            if(Convert.ToInt32(GlobalVar.bMultiThreadedRendering.VarValue) == 1)
+            {
+                EnableRenderThreading.IsChecked = true;
+            }
+            else
+            {
+                EnableRenderThreading.IsChecked = false;
+            }
         }
 
         //Export a custom preset of values
@@ -688,6 +698,7 @@ namespace FO4AlternativeLauncher
         void SetAllVarValues()
         {
             try {
+                SetMultithreadedRendering();
                 SetFpsLock();
                 SetFoV();
                 SetFadeSettings();
@@ -705,6 +716,11 @@ namespace FO4AlternativeLauncher
                 MessageBox.Show(e.Message + " || " + e.Source.ToString() + " || " + e.StackTrace);
             }
 
+        }
+
+        private void SetMultithreadedRendering()
+        {
+            GlobalVar.bMultiThreadedRendering.ChangeValueAuto(Convert.ToInt32(EnableRenderThreading.IsChecked));
         }
 
         private void SetFitToScreen()
