@@ -286,10 +286,17 @@ namespace FO4AlternativeLauncher.Common
         {
             Section = "MAIN",
             VarName = "bCrosshairEnabled",
-            VarValue =  1.ToString(),
+            VarValue = 1.ToString(),
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
-        }; 
+        }; public static AppSettingFormat fAutosaveEveryXMins = new AppSettingFormat()
+        {
+            Section = "SaveGame",
+            VarName = "fAutosaveEveryXMins",
+            VarValue = 10.0000.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+        };
 
+        
 
 
 

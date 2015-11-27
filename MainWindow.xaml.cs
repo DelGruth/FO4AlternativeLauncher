@@ -539,6 +539,9 @@ namespace FO4AlternativeLauncher
             {
                 EnableCrossair.IsChecked = false;
             }
+
+
+            AutoSaveEveryXMin.Text = GlobalVar.fAutosaveEveryXMins.VarValue.ToString();
         }
 
         //Export a custom preset of values
@@ -722,6 +725,7 @@ namespace FO4AlternativeLauncher
         void SetAllVarValues()
         {
             try {
+                SetAutoSaveInterval();
                 SetEnableCrossair();
                 SetEnableGamepad();
                 SetDisableGore();
@@ -744,6 +748,11 @@ namespace FO4AlternativeLauncher
                 MessageBox.Show(e.Message + " || " + e.Source.ToString() + " || " + e.StackTrace);
             }
 
+        }
+
+        private void SetAutoSaveInterval()
+        {
+            GlobalVar.fAutosaveEveryXMins.ChangeValue((Convert.ToSingle(AutoSaveEveryXMin.Text)));
         }
 
         private void SetEnableCrossair()
