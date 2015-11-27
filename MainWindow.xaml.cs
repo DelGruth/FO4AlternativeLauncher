@@ -919,8 +919,12 @@ namespace FO4AlternativeLauncher
                 if ((bool)Borderless.IsChecked)
                 {
                     GlobalVar.bBorderless.ChangeValue(1);
+                }else
+                {
+                    GlobalVar.bBorderless.ChangeValue(0);
                 }
-            }else
+            }
+            else
             {
                 GlobalVar.bFull_Screen.ChangeValue(1);
                 GlobalVar.bBorderless.ChangeValue(0);
