@@ -836,10 +836,10 @@ namespace FO4AlternativeLauncher
 
         private void SetFadeSettings()
         {
-            GlobalVar.ActorFade.ChangeValue(ActorFade.Value);
-            GlobalVar.GrassFade.ChangeValue(GrassFade.Value);
-            GlobalVar.ItemFade.ChangeValue(ItemFade.Value);
-            GlobalVar.ObjectFade.ChangeValue(ObjectFade.Value);
+            GlobalVar.ActorFade.ChangeValue(ActorFade_Text.Text);
+            GlobalVar.GrassFade.ChangeValue(GrassFade_Text.Text);
+            GlobalVar.ItemFade.ChangeValue(ItemFade_Text.Text);
+            GlobalVar.ObjectFade.ChangeValue(ObjectFade_Text.Text);
         }
 
         private void SetMaxParticles()
@@ -1290,8 +1290,27 @@ namespace FO4AlternativeLauncher
             }
         }
 
+
         #endregion
 
-   
+        private void ObjectFade_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ObjectFade_Text.Text = ObjectFade.Value.ToString();
+        }
+
+        private void ActorFade_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ActorFade_Text.Text = ActorFade.Value.ToString();
+        }
+
+        private void GrassFade_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            GrassFade_Text.Text = GrassFade.Value.ToString();
+        }
+
+        private void ItemFade_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ItemFade_Text.Text = ItemFade.Value.ToString();
+        }
     }
 }
