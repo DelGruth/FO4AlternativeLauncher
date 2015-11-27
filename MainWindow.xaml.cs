@@ -725,6 +725,7 @@ namespace FO4AlternativeLauncher
         void SetAllVarValues()
         {
             try {
+                Set3rdPersonAimFOV();
                 SetAutoSaveInterval();
                 SetEnableCrossair();
                 SetEnableGamepad();
@@ -748,6 +749,11 @@ namespace FO4AlternativeLauncher
                 MessageBox.Show(e.Message + " || " + e.Source.ToString() + " || " + e.StackTrace);
             }
 
+        }
+
+        private void Set3rdPersonAimFOV()
+        {
+            GlobalVar.f3rdPersonAimFOV.ChangeValue(_3rdPersonaimfov.Text);
         }
 
         private void SetAutoSaveInterval()

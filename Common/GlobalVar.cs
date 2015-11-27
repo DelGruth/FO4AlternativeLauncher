@@ -295,6 +295,13 @@ namespace FO4AlternativeLauncher.Common
             VarValue = 10.0000.ToString(),
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
         };
+        public static AppSettingFormat f3rdPersonAimFOV = new AppSettingFormat()
+        {
+            Section = "Camera",
+            VarName = "f3rdPersonAimFOV",
+            VarValue = 50.0000.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+        };
 
         
 
