@@ -542,6 +542,16 @@ namespace FO4AlternativeLauncher
 
 
             AutoSaveEveryXMin.Text = GlobalVar.fAutosaveEveryXMins.VarValue.ToString();
+            _3rdPersonaimfov.Text = GlobalVar.f3rdPersonAimFOV.VarValue.ToString();
+            if (Convert.ToInt32(GlobalVar.bForceNPCsUseAmmo.VarValue) == 1)
+            {
+                NPCsUseAmmo.IsChecked = true;
+            }
+            else
+            {
+                NPCsUseAmmo.IsChecked = false;
+            }
+
         }
 
         //Export a custom preset of values
@@ -725,6 +735,7 @@ namespace FO4AlternativeLauncher
         void SetAllVarValues()
         {
             try {
+                SetNPCsUseAmmo();
                 Set3rdPersonAimFOV();
                 SetAutoSaveInterval();
                 SetEnableCrossair();
@@ -751,9 +762,14 @@ namespace FO4AlternativeLauncher
 
         }
 
+        private void SetNPCsUseAmmo()
+        {
+            GlobalVar.bForceNPCsUseAmmo.ChangeValueAuto(Convert.ToInt32(NPCsUseAmmo.IsChecked));
+        }
+
         private void Set3rdPersonAimFOV()
         {
-            GlobalVar.f3rdPersonAimFOV.ChangeValue(_3rdPersonaimfov.Text);
+            GlobalVar.f3rdPersonAimFOV.ChangeValue(Convert.ToSingle(_3rdPersonaimfov.Text));
         }
 
         private void SetAutoSaveInterval()

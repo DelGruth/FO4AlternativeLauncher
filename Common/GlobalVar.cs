@@ -293,17 +293,20 @@ namespace FO4AlternativeLauncher.Common
             Section = "SaveGame",
             VarName = "fAutosaveEveryXMins",
             VarValue = 10.0000.ToString(),
-            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
         };
         public static AppSettingFormat f3rdPersonAimFOV = new AppSettingFormat()
         {
             Section = "Camera",
             VarName = "f3rdPersonAimFOV",
             VarValue = 50.0000.ToString(),
+        };
+        public static AppSettingFormat bForceNPCsUseAmmo = new AppSettingFormat()
+        {
+            Section = "Combat",
+            VarName = "bForceNPCsUseAmmo",
+            VarValue = 0.ToString(),
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
         };
-
-        
 
 
 
