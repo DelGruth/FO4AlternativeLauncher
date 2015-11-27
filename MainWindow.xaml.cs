@@ -373,12 +373,21 @@ namespace FO4AlternativeLauncher
             if (Convert.ToInt32(GlobalVar.bFull_Screen.VarValue) == 0)
             {
                 WindowedMode.IsChecked = false;
-                Borderless.IsChecked = true;
 
             }
             else if (Convert.ToInt32(GlobalVar.bFull_Screen.VarValue) == 1)
             {
                 WindowedMode.IsChecked = true;
+            }
+
+            if(Convert.ToInt32(GlobalVar.bBorderless.VarValue) == 0)
+            {
+                Borderless.IsChecked = false;
+
+            }else
+            {
+                Borderless.IsChecked = false;
+
             }
 
             if (Convert.ToInt32(GlobalVar.bLensFlare.VarValue) == 0)
@@ -552,6 +561,7 @@ namespace FO4AlternativeLauncher
                 NPCsUseAmmo.IsChecked = false;
             }
 
+            DefaultWaithours_input.Text = GlobalVar.iDefaultWaitHours.VarValue.ToString();
         }
 
         //Export a custom preset of values
@@ -735,6 +745,7 @@ namespace FO4AlternativeLauncher
         void SetAllVarValues()
         {
             try {
+                SetDefaultWaitHours();
                 SetNPCsUseAmmo();
                 Set3rdPersonAimFOV();
                 SetAutoSaveInterval();
@@ -759,6 +770,17 @@ namespace FO4AlternativeLauncher
             {
                 MessageBox.Show(e.Message + " || " + e.Source.ToString() + " || " + e.StackTrace);
             }
+
+        }
+
+        private void SetDefaultWaitHours()
+        {
+            if(Convert.ToInt32(DefaultWaithours_input.Text) < 24)
+                GlobalVar.iDefaultWaitHours.ChangeValue(DefaultWaithours_input.Text);
+            else if (Convert.ToInt32(DefaultWaithours_input.Text) > 0)
+                GlobalVar.iDefaultWaitHours.ChangeValue(24);
+            else if (Convert.ToInt32(DefaultWaithours_input.Text) < 0)
+                GlobalVar.iDefaultWaitHours.ChangeValue(1);
 
         }
 
@@ -1018,11 +1040,20 @@ namespace FO4AlternativeLauncher
                 {
                     GlobalVar.bBorderless.ChangeValue(0);
                 }
+                if( (bool)(Stretch_to_fit.IsChecked))
+                {
+                    GlobalVar.bMaximizeWindow.ChangeValue(1);
+                }
+                else
+                {
+                    GlobalVar.bMaximizeWindow.ChangeValue(0);
+                }
             }
             else
             {
                 GlobalVar.bFull_Screen.ChangeValue(1);
                 GlobalVar.bBorderless.ChangeValue(0);
+                GlobalVar.bMaximizeWindow.ChangeValue(0);
             }
         }
 

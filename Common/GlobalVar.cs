@@ -299,6 +299,7 @@ namespace FO4AlternativeLauncher.Common
             Section = "Camera",
             VarName = "f3rdPersonAimFOV",
             VarValue = 50.0000.ToString(),
+            pref = false
         };
         public static AppSettingFormat bForceNPCsUseAmmo = new AppSettingFormat()
         {
@@ -306,9 +307,17 @@ namespace FO4AlternativeLauncher.Common
             VarName = "bForceNPCsUseAmmo",
             VarValue = 0.ToString(),
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        };
+        public static AppSettingFormat iDefaultWaitHours = new AppSettingFormat()
+        {
+            Section = "Interface",
+            VarName = "iDefaultWaitHours",
+            VarValue = 1.ToString(),
+            pref = false
         };
 
-
+        
 
 
         #endregion
@@ -322,7 +331,8 @@ namespace FO4AlternativeLauncher.Common
                 bMBEnable, bEnableRainOcclusion, bEnableWetnessMaterials, bScreenSpaceReflections, bBorderless, bFull_Screen
                 ,Vsync,FOV_1st,FOV_3rd,MaxParticles,ObjectFade,ActorFade,ItemFade,GrassFade,iNumHWThreads,iNumThreads,
                 iMinGrassSize, bAllowCreateGrass,bAllowLoadGrass,iMaxGrassTypesPerTexure,SkipIntro ,bEnablePlatform
-                ,bEnableAnalytics,bShowTutorials,bMaximizeWindow,bMultiThreadedRendering,bEssentialTakeNoDamage};
+                ,bEnableAnalytics,bShowTutorials,bMaximizeWindow,bMultiThreadedRendering,bEssentialTakeNoDamage,bDisableAllGore,
+                bGamepadEnable,bCrosshairEnabled,fAutosaveEveryXMins,f3rdPersonAimFOV,bForceNPCsUseAmmo,iDefaultWaitHours };
 
 
         public const int Vsync_Off = 0;
