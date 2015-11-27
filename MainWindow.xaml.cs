@@ -303,15 +303,15 @@ namespace FO4AlternativeLauncher
             if (Convert.ToInt32(GlobalVar.bDecals.VarValue) == 0|| Convert.ToInt32(GlobalVar.uMaxDecals.VarValue) == GlobalVar.uMaxDecals_None) {
                 Decal_Quantity.SelectedIndex = 0;
             }
-            else if (Convert.ToInt32(GlobalVar.uMaxSkinDecals.VarValue) == GlobalVar.uMaxDecals_Medium)
+            else if (Convert.ToInt32(GlobalVar.uMaxSkinDecals.VarValue) == GlobalVar.uMaxSkinDecals_Medium)
             {
                 Decal_Quantity.SelectedIndex = 1;
             }
-            else if (Convert.ToInt32(GlobalVar.uMaxSkinDecals.VarValue) == GlobalVar.uMaxDecals_High)
+            else if (Convert.ToInt32(GlobalVar.uMaxSkinDecals.VarValue) == GlobalVar.uMaxSkinDecals_High)
             {
                 Decal_Quantity.SelectedIndex = 2;
             }
-            else if (Convert.ToInt32(GlobalVar.uMaxSkinDecals.VarValue) == GlobalVar.uMaxDecals_Ultra)
+            else if (Convert.ToInt32(GlobalVar.uMaxSkinDecals.VarValue) == GlobalVar.uMaxSkinDecals_Ultra)
             {
                 Decal_Quantity.SelectedIndex = 3;
             }
@@ -402,12 +402,12 @@ namespace FO4AlternativeLauncher
 
             if (Convert.ToInt32(GlobalVar.bEnableRainOcclusion.VarValue) == 0)
             {
-                BlurMotion.IsChecked = false;
+                RainOC.IsChecked = false;
 
             }
             else if (Convert.ToInt32(GlobalVar.bEnableRainOcclusion.VarValue) == 1)
             {
-                BlurMotion.IsChecked = true;
+                RainOC.IsChecked = true;
             }
 
             if (Convert.ToInt32(GlobalVar.bEnableWetnessMaterials.VarValue) == 0)
