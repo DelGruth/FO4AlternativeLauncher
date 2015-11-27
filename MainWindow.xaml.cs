@@ -548,7 +548,15 @@ namespace FO4AlternativeLauncher
             {
                 EnableCrossair.IsChecked = false;
             }
-
+            if (Convert.ToInt32(GlobalVar.bEssentialTakeNoDamage.VarValue) == 1)
+            {
+                EssentialKillable.IsChecked = true;
+            }
+            else
+            {
+                EssentialKillable.IsChecked = false;
+            }
+            
 
             AutoSaveEveryXMin.Text = GlobalVar.fAutosaveEveryXMins.VarValue.ToString();
             _3rdPersonaimfov.Text = GlobalVar.f3rdPersonAimFOV.VarValue.ToString();
@@ -811,7 +819,7 @@ namespace FO4AlternativeLauncher
 
         private void SetDisableGore()
         {
-            GlobalVar.bEssentialTakeNoDamage.ChangeValueAuto(Convert.ToInt32(DisableGore.IsChecked));
+            GlobalVar.bDisableAllGore.ChangeValueAuto(Convert.ToInt32(DisableGore.IsChecked));
         }
 
         private void SetEssentialNPCKillable()
