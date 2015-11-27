@@ -507,13 +507,29 @@ namespace FO4AlternativeLauncher
             }
 
 
-            if(Convert.ToInt32(GlobalVar.bMultiThreadedRendering.VarValue) == 1)
+            if (Convert.ToInt32(GlobalVar.bMultiThreadedRendering.VarValue) == 1)
             {
                 EnableRenderThreading.IsChecked = true;
             }
             else
             {
                 EnableRenderThreading.IsChecked = false;
+            }
+            if (Convert.ToInt32(GlobalVar.bDisableAllGore.VarValue) == 1)
+            {
+                DisableGore.IsChecked = true;
+            }
+            else
+            {
+                DisableGore.IsChecked = false;
+            }
+            if (Convert.ToInt32(GlobalVar.bGamepadEnable.VarValue) == 1)
+            {
+                EnableGamePad.IsChecked = true;
+            }
+            else
+            {
+                EnableGamePad.IsChecked = false;
             }
         }
 
@@ -698,6 +714,9 @@ namespace FO4AlternativeLauncher
         void SetAllVarValues()
         {
             try {
+                SetEnableGamepad();
+                SetDisableGore();
+                SetEssentialNPCKillable();
                 SetMultithreadedRendering();
                 SetFpsLock();
                 SetFoV();
@@ -716,6 +735,21 @@ namespace FO4AlternativeLauncher
                 MessageBox.Show(e.Message + " || " + e.Source.ToString() + " || " + e.StackTrace);
             }
 
+        }
+
+        private void SetEnableGamepad()
+        {
+            GlobalVar.bGamepadEnable.ChangeValueAuto(Convert.ToInt32(EnableGamePad.IsChecked));
+        }
+
+        private void SetDisableGore()
+        {
+            GlobalVar.bEssentialTakeNoDamage.ChangeValueAuto(Convert.ToInt32(DisableGore.IsChecked));
+        }
+
+        private void SetEssentialNPCKillable()
+        {
+            GlobalVar.bEssentialTakeNoDamage.ChangeValueAuto(Convert.ToInt32(EssentialKillable.IsChecked));
         }
 
         private void SetMultithreadedRendering()
