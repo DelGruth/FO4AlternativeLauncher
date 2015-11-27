@@ -1,0 +1,14 @@
+﻿<Window x:Class="FO4AlternativeLauncher.Console"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FO4AlternativeLauncher"
+        mc:Ignorable="d"
+        Title="Console" Height="100" Width="800" WindowStyle="None" ResizeMode="CanResizeWithGrip" ShowInTaskbar="False" Topmost="True" IsManipulationEnabled="True" WindowStartupLocation="Manual" MouseDown="Window_MouseDown_1">
+    <Grid>
+        <ScrollViewer>
+            <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Width="775" Grid.IsSharedSizeScope="True" MouseDown="textBlock1_MouseDown" />
+        </ScrollViewer>
+    </Grid>
+</Window>
