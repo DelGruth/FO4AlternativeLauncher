@@ -569,6 +569,10 @@ namespace FO4AlternativeLauncher
             }
 
             DefaultWaithours_input.Text = GlobalVar.iDefaultWaitHours.VarValue.ToString();
+
+
+
+
         }
 
         //Export a custom preset of values
@@ -752,6 +756,8 @@ namespace FO4AlternativeLauncher
         void SetAllVarValues()
         {
             try {
+                SetV02Values();
+
                 SetDefaultWaitHours();
                 SetNPCsUseAmmo();
                 Set3rdPersonAimFOV();
@@ -777,6 +783,16 @@ namespace FO4AlternativeLauncher
             {
                 MessageBox.Show(e.Message + " || " + e.Source.ToString() + " || " + e.StackTrace);
             }
+
+        }
+
+        private void SetV02Values()
+        {
+            GlobalVar.bBackgroundPathing.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
+            GlobalVar.bBackgroundCellLoads.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
+            GlobalVar.bBackgroundNavmeshUpdate.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
+            GlobalVar.bUseThreadedParticleSystem.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
+            GlobalVar.bUseMultiThreadedTrees.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
 
         }
 

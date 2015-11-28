@@ -315,6 +315,27 @@ namespace FO4AlternativeLauncher.Common
             VarName = "iDefaultWaitHours",
             VarValue = 1.ToString(),
             pref = false
+        }; public static AppSettingFormat bBackgroundPathing = new AppSettingFormat()
+        {
+            Section = "Pathfinding",
+            VarName = "bBackgroundPathing",
+            VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bBackgroundCellLoads = new AppSettingFormat()
+        {
+            Section = "BackgroundLoad",
+            VarName = "bBackgroundCellLoads",
+            VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat iBackgroundLoadLoading = new AppSettingFormat()
+        {
+            Section = "BackgroundLoad",
+            VarName = "bBackgroundNavmeshUpdate",
+            VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
         };
 
         
@@ -332,7 +353,8 @@ namespace FO4AlternativeLauncher.Common
                 ,Vsync,FOV_1st,FOV_3rd,MaxParticles,ObjectFade,ActorFade,ItemFade,GrassFade,iNumHWThreads,iNumThreads,
                 iMinGrassSize, bAllowCreateGrass,bAllowLoadGrass,iMaxGrassTypesPerTexure,SkipIntro ,bEnablePlatform
                 ,bEnableAnalytics,bShowTutorials,bMaximizeWindow,bMultiThreadedRendering,bEssentialTakeNoDamage,bDisableAllGore,
-                bGamepadEnable,bCrosshairEnabled,fAutosaveEveryXMins,f3rdPersonAimFOV,bForceNPCsUseAmmo,iDefaultWaitHours };
+                bGamepadEnable,bCrosshairEnabled,fAutosaveEveryXMins,f3rdPersonAimFOV,bForceNPCsUseAmmo,iDefaultWaitHours,
+ };
 
 
         public const int Vsync_Off = 0;
