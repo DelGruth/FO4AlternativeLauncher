@@ -184,6 +184,8 @@
                         <CheckBox x:Name="ExperimentalThreading" Content="Experimental Threading" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,50.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="182"/>
                         <CheckBox x:Name="CompanionWarping" Content="Companion Warping" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,73.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="182"/>
                         <ComboBox x:Name="uGridsToLoad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="55.2,63.6,0,0" Grid.Column="1" Height="25"  Grid.Row="2" Grid.ColumnSpan="2">
+                            <ListBoxItem Content="1"/>
+                            <ListBoxItem Content="3"/>
                             <ListBoxItem Content="5"/>
                             <ListBoxItem Content="7"/>
                             <ListBoxItem Content="9"/>

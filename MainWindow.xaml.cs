@@ -570,25 +570,34 @@ namespace FO4AlternativeLauncher
 
             DefaultWaithours_input.Text = GlobalVar.iDefaultWaitHours.VarValue.ToString();
 
-          if(Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 5)
+
+            if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 1)
             {
                 uGridsToLoad.SelectedIndex = 0;
             }
-            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 7)
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 3)
             {
                 uGridsToLoad.SelectedIndex = 1;
             }
-            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 9)
+            else if(Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 5)
             {
                 uGridsToLoad.SelectedIndex = 2;
             }
-            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 11)
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 7)
             {
                 uGridsToLoad.SelectedIndex = 3;
             }
-            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 13)
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 9)
             {
                 uGridsToLoad.SelectedIndex = 4;
+            }
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 11)
+            {
+                uGridsToLoad.SelectedIndex = 5;
+            }
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 13)
+            {
+                uGridsToLoad.SelectedIndex = 6;
             }
             if (Convert.ToInt32(GlobalVar.bUseCompanionWarping.VarValue) == 1)
             {

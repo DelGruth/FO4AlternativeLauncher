@@ -435,7 +435,7 @@ namespace FO4AlternativeLauncher.Common
             Section = "General",
             VarName = "uGridsToLoad",
             VarValue = 5.ToString(),
-            vsc = new global::VisualSettingConverter(new string[5] { "5", "7", "9", "11", "13" }, new int[5] { 0, 1, 2, 3, 4 }),
+            vsc = new global::VisualSettingConverter(new string[7] {"1","3", "5", "7", "9", "11", "13" }, new int[5] { 0, 1, 2, 3, 4 }),
         };
         public static AppSettingFormat uExteriorCellBuffer = new AppSettingFormat()
         {
@@ -443,14 +443,14 @@ namespace FO4AlternativeLauncher.Common
             Section = "General",
             VarName = "uExterior Cell Buffer",
             VarValue = 36.ToString(),
-            vsc = new global::VisualSettingConverter(new string[5] { "36", "64", "100", "144", "196" }, new int[5] { 0, 1, 2, 3, 4 }),
+            vsc = new global::VisualSettingConverter(new string[7] {"4","16", "36", "64", "100", "144", "196" }, new int[5] { 0, 1, 2, 3, 4 }),
         }; public static AppSettingFormat iPreloadSizeLimit = new AppSettingFormat()
         {
             pref =false,
             Section = "General",
             VarName = "iPreloadSizeLimit",
             VarValue = 419430400.ToString(),
-            vsc = new global::VisualSettingConverter(new string[5] { "26214400", "51380224", "84934656", "126877696", "177209344" }, new int[5] { 0, 1, 2, 3, 4 }),
+            vsc = new global::VisualSettingConverter(new string[7] { "1048576", "9437184","26214400", "51380224", "84934656", "126877696", "177209344" }, new int[5] { 0, 1, 2, 3, 4 }),
         }; public static AppSettingFormat fChancesToPlayAlternateIntro = new AppSettingFormat()
         {
             pref =false,
