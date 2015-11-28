@@ -329,17 +329,99 @@ namespace FO4AlternativeLauncher.Common
             VarValue = 1.ToString(),
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
             pref = false
-        }; public static AppSettingFormat iBackgroundLoadLoading = new AppSettingFormat()
+        }; public static AppSettingFormat bBackgroundNavmeshUpdate = new AppSettingFormat()
         {
             Section = "BackgroundLoad",
             VarName = "bBackgroundNavmeshUpdate",
             VarValue = 1.ToString(),
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
             pref = false
+        }; public static AppSettingFormat bUseThreadedParticleSystem = new AppSettingFormat()
+        {
+            Section = "General",
+            VarName = "bUseThreadedParticleSystem",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bUseMultiThreadedTrees = new AppSettingFormat()
+        {
+            Section = "BackgroundLoad",
+            VarName = "bUseMultiThreadedTrees",
+            VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat fUpdateBudgetMS = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "fUpdateBudgetMS",
+            VarValue = 1.2.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat fExtraTaskletBudgetMS = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "fExtraTaskletBudgetMS",
+            VarValue = 1.2.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        };
+        public static AppSettingFormat fPostLoadUpdateTimeMS = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "fExtraTaskletBudgetMS",
+            VarValue = 500.0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat iMinMemoryPageSize = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "iMinMemoryPageSize",
+            VarValue = 128.0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        };
+        public static AppSettingFormat iMaxMemoryPageSize = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "iMaxMemoryPageSize",
+            VarValue = 512.0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        };
+        public static AppSettingFormat iMaxAllocatedMemoryBytes = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "iMaxAllocatedMemoryBytes",
+            VarValue = 153600.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bEnableLogging = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "iMaxAllocatedMemoryBytes",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        };
+        public static AppSettingFormat bEnableProfiling = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "bEnableProfiling",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        };
+        public static AppSettingFormat bEnableTrace = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "bEnableTrace",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
         };
 
-        
 
+ 
 
         #endregion
 

@@ -794,6 +794,7 @@ namespace FO4AlternativeLauncher
             GlobalVar.bUseThreadedParticleSystem.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
             GlobalVar.bUseMultiThreadedTrees.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
 
+
         }
 
         private void SetDefaultWaitHours()
