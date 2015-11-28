@@ -47,6 +47,7 @@
                             <ListBoxItem Content="16:9"/>
                             <ListBoxItem Content="16:10"/>
                             <ListBoxItem Content="4:3"/>
+                            <ListBoxItem Content="21:9"/>
                         </ComboBox>
                         <TextBlock x:Name="textBox" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="Aspect Ratio:" VerticalAlignment="Top" Width="80" Grid.ColumnSpan="2" RenderTransformOrigin="0.503,0.516" Margin="0,30,0,0"/>
                         <ComboBox x:Name="Resolution_ComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="55.2,64,0,0" Grid.Column="1" Height="25" Grid.ColumnSpan="2">
