@@ -788,12 +788,22 @@ namespace FO4AlternativeLauncher
 
         private void SetV02Values()
         {
+            SetCompanionWarp();
+            SetExperimentalThreading();
+        }
+
+        private void SetCompanionWarp()
+        {
+            GlobalVar.bUseCompanionWarping.ChangeValueAuto(Convert.ToInt32(CompanionWarping.IsChecked));
+        }
+
+        private void SetExperimentalThreading()
+        {
             GlobalVar.bBackgroundPathing.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
             GlobalVar.bBackgroundCellLoads.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
             GlobalVar.bBackgroundNavmeshUpdate.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
             GlobalVar.bUseThreadedParticleSystem.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
             GlobalVar.bUseMultiThreadedTrees.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
-
 
         }
 

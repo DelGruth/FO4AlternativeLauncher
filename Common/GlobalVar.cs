@@ -418,10 +418,17 @@ namespace FO4AlternativeLauncher.Common
             VarValue = 0.ToString(),
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
             pref = false
+        }; public static AppSettingFormat bUseCompanionWarping = new AppSettingFormat()
+        {
+            Section = "Pathfinding",
+            VarName = "bUseCompanionWarping",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
         };
 
 
- 
+
 
         #endregion
 
