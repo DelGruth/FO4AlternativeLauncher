@@ -570,7 +570,42 @@ namespace FO4AlternativeLauncher
 
             DefaultWaithours_input.Text = GlobalVar.iDefaultWaitHours.VarValue.ToString();
 
+          if(Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 5)
+            {
+                uGridsToLoad.SelectedIndex = 0;
+            }
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 7)
+            {
+                uGridsToLoad.SelectedIndex = 1;
+            }
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 9)
+            {
+                uGridsToLoad.SelectedIndex = 2;
+            }
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 11)
+            {
+                uGridsToLoad.SelectedIndex = 3;
+            }
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 13)
+            {
+                uGridsToLoad.SelectedIndex = 4;
+            }
+            if (Convert.ToInt32(GlobalVar.bUseCompanionWarping.VarValue) == 1)
+            {
+                CompanionWarping.IsChecked = true;
+            }
+            else
+            {
+                CompanionWarping.IsChecked = false;
+            }
 
+            if(Convert.ToInt32(GlobalVar.bUseThreadedParticleSystem.VarValue) == 1)
+            {
+                ExperimentalThreading.IsChecked = true;
+            }else
+            {
+                ExperimentalThreading.IsChecked = false;
+            }
 
 
         }
@@ -788,8 +823,16 @@ namespace FO4AlternativeLauncher
 
         private void SetV02Values()
         {
+            SetuGridValue();
             SetCompanionWarp();
             SetExperimentalThreading();
+        }
+
+        private void SetuGridValue()
+        {
+            GlobalVar.uGridsToLoad.ChangeValueAuto(uGridsToLoad.SelectedIndex);
+            GlobalVar.iPreloadSizeLimit.ChangeValueAuto(uGridsToLoad.SelectedIndex);
+            GlobalVar.uExteriorCellBuffer.ChangeValueAuto(uGridsToLoad.SelectedIndex);
         }
 
         private void SetCompanionWarp()
@@ -908,6 +951,7 @@ namespace FO4AlternativeLauncher
         private void SetIntroSkip()
         {
             GlobalVar.SkipIntro.ChangeValueAuto(Convert.ToInt32(SkipIntro.IsChecked));
+            GlobalVar.fChancesToPlayAlternateIntro.ChangeValueAuto(Convert.ToInt32(SkipIntro.IsChecked));
         }
 
         private void SetGrassQuality()

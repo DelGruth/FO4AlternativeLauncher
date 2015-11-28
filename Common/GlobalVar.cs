@@ -350,7 +350,9 @@ namespace FO4AlternativeLauncher.Common
             VarValue = 1.ToString(),
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
             pref = false
-        }; public static AppSettingFormat fUpdateBudgetMS = new AppSettingFormat()
+        };
+        #region Don't add
+        public static AppSettingFormat fUpdateBudgetMS = new AppSettingFormat()
         {
             Section = "Papyrus",
             VarName = "fUpdateBudgetMS",
@@ -418,15 +420,46 @@ namespace FO4AlternativeLauncher.Common
             VarValue = 0.ToString(),
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
             pref = false
-        }; public static AppSettingFormat bUseCompanionWarping = new AppSettingFormat()
+        };
+        #endregion
+
+        public static AppSettingFormat bUseCompanionWarping = new AppSettingFormat()
         {
             Section = "Pathfinding",
             VarName = "bUseCompanionWarping",
-            VarValue = 0.ToString(),
+            VarValue = 1.ToString(),
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
             pref = false
+        }; public static AppSettingFormat uGridsToLoad = new AppSettingFormat()
+        {
+            Section = "General",
+            VarName = "uGridsToLoad",
+            VarValue = 5.ToString(),
+            vsc = new global::VisualSettingConverter(new string[5] { "5", "7", "9", "11", "13" }, new int[5] { 0, 1, 2, 3, 4 }),
         };
-
+        public static AppSettingFormat uExteriorCellBuffer = new AppSettingFormat()
+        {
+            pref =false,
+            Section = "General",
+            VarName = "uExterior Cell Buffer",
+            VarValue = 36.ToString(),
+            vsc = new global::VisualSettingConverter(new string[5] { "36", "64", "100", "144", "196" }, new int[5] { 0, 1, 2, 3, 4 }),
+        }; public static AppSettingFormat iPreloadSizeLimit = new AppSettingFormat()
+        {
+            pref =false,
+            Section = "General",
+            VarName = "iPreloadSizeLimit",
+            VarValue = 419430400.ToString(),
+            vsc = new global::VisualSettingConverter(new string[5] { "26214400", "51380224", "84934656", "126877696", "177209344" }, new int[5] { 0, 1, 2, 3, 4 }),
+        }; public static AppSettingFormat fChancesToPlayAlternateIntro = new AppSettingFormat()
+        {
+            pref =false,
+            Section = "General",
+            VarName = "fChancesToPlayAlternateIntro",
+            VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "1", "0", }, new int[2] { 0, 1}),
+        };
+        
 
 
 
@@ -443,7 +476,7 @@ namespace FO4AlternativeLauncher.Common
                 iMinGrassSize, bAllowCreateGrass,bAllowLoadGrass,iMaxGrassTypesPerTexure,SkipIntro ,bEnablePlatform
                 ,bEnableAnalytics,bShowTutorials,bMaximizeWindow,bMultiThreadedRendering,bEssentialTakeNoDamage,bDisableAllGore,
                 bGamepadEnable,bCrosshairEnabled,fAutosaveEveryXMins,f3rdPersonAimFOV,bForceNPCsUseAmmo,iDefaultWaitHours,
- };
+                bUseThreadedParticleSystem,bUseCompanionWarping,uGridsToLoad,uExteriorCellBuffer,iPreloadSizeLimit,fChancesToPlayAlternateIntro};
 
 
         public const int Vsync_Off = 0;

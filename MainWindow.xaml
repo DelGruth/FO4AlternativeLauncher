@@ -142,14 +142,14 @@
                         <CheckBox x:Name="Vsync" Content="Lock at 60 fps" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,88.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="Turns on Vsync(Reduces Tearing)" Width="90"/>
                         <TextBox x:Name="MaxParticles" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="419.4,72,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="40"/>
                         <TextBlock x:Name="textBlock_Copy1" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,72,0,0" TextWrapping="Wrap" Text="Max Particles" VerticalAlignment="Top" Width="95" FontSize="13.333" RenderTransformOrigin="0.476,0.846" Height="18"/>
-                        <Slider x:Name="ObjectFade" Grid.Column="2" HorizontalAlignment="Left" Margin="381.4,118.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Maximum="30" Height="22" ValueChanged="ObjectFade_ValueChanged"/>
-                        <TextBlock x:Name="textBlock1" Grid.Column="2" HorizontalAlignment="Left" Margin="286.4,115.4,0,0" TextWrapping="Wrap" Text="Object Fade" VerticalAlignment="Top" FontSize="13.333" Grid.Row="1" Height="18" Width="71"/>
-                        <Slider x:Name="ActorFade" Grid.Column="2" HorizontalAlignment="Left" Margin="381.4,146.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Maximum="15" Height="22" ValueChanged="ActorFade_ValueChanged"/>
-                        <TextBlock x:Name="textBlock1_Copy" Grid.Column="2" HorizontalAlignment="Left" Margin="286.4,143.4,0,0" TextWrapping="Wrap" Text="Actor Fade" VerticalAlignment="Top" FontSize="13.333" Grid.Row="1" Height="18" Width="64"/>
-                        <Slider x:Name="GrassFade" Grid.Column="2" HorizontalAlignment="Left" Margin="381.4,177.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Maximum="7000" Height="22" ValueChanged="GrassFade_ValueChanged"/>
-                        <TextBlock x:Name="textBlock1_Copy1" Grid.Column="2" HorizontalAlignment="Left" Margin="286.4,175.4,0,0" TextWrapping="Wrap" Text="Grass Fade" VerticalAlignment="Top" FontSize="13.333" Grid.Row="1" Height="18" Width="64"/>
-                        <Slider x:Name="ItemFade" Grid.Column="2" HorizontalAlignment="Left" Margin="381.4,207.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="22" ValueChanged="ItemFade_ValueChanged"/>
-                        <TextBlock x:Name="textBlock1_Copy2" Grid.Column="2" HorizontalAlignment="Left" Margin="286.4,205.4,0,0" TextWrapping="Wrap" Text="Item Fade" VerticalAlignment="Top" FontSize="13.333" Grid.Row="1" Height="18" Width="59"/>
+                        <Slider x:Name="ObjectFade" Grid.Column="2" HorizontalAlignment="Left" Margin="378.4,116.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Maximum="30" Height="22" ValueChanged="ObjectFade_ValueChanged"/>
+                        <TextBlock x:Name="textBlock1" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,113.4,0,0" TextWrapping="Wrap" Text="Object Fade" VerticalAlignment="Top" FontSize="13.333" Grid.Row="1" Height="18" Width="71"/>
+                        <Slider x:Name="ActorFade" Grid.Column="2" HorizontalAlignment="Left" Margin="378.4,144.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Maximum="15" Height="22" ValueChanged="ActorFade_ValueChanged"/>
+                        <TextBlock x:Name="textBlock1_Copy" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,141.4,0,0" TextWrapping="Wrap" Text="Actor Fade" VerticalAlignment="Top" FontSize="13.333" Grid.Row="1" Height="18" Width="64"/>
+                        <Slider x:Name="GrassFade" Grid.Column="2" HorizontalAlignment="Left" Margin="378.4,175.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Maximum="7000" Height="22" ValueChanged="GrassFade_ValueChanged"/>
+                        <TextBlock x:Name="textBlock1_Copy1" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,173.4,0,0" TextWrapping="Wrap" Text="Grass Fade" VerticalAlignment="Top" FontSize="13.333" Grid.Row="1" Height="18" Width="64"/>
+                        <Slider x:Name="ItemFade" Grid.Column="2" HorizontalAlignment="Left" Margin="378.4,205.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="22" ValueChanged="ItemFade_ValueChanged"/>
+                        <TextBlock x:Name="textBlock1_Copy2" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,203.4,0,0" TextWrapping="Wrap" Text="Item Fade" VerticalAlignment="Top" FontSize="13.333" Grid.Row="1" Height="18" Width="59"/>
                         <ComboBox x:Name="GrassQuality" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="55.2,33.6,0,0" Grid.Column="1" Height="25"  Grid.Row="2" Grid.ColumnSpan="2" IsEnabled="False">
                             <ListBoxItem Content="Off"/>
                             <ListBoxItem Content="Low"/>
@@ -166,23 +166,31 @@
                         <TextBlock x:Name="textBlock_Copy2" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,4.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontSize="13.333" RenderTransformOrigin="0.476,0.846" Height="18" Grid.Row="1"><Run Text="Number of CPU cores"/><LineBreak/><Run/></TextBlock>
                         <CheckBox x:Name="Stretch_to_fit" Content="Maximize Window" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,49,0,0" VerticalAlignment="Top" Height="18" RenderTransformOrigin="0.497,0.4" Width="127"/>
                         <CheckBox x:Name="EnableRenderThreading" Content="MultiThreaded Rendering" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,181.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="162"/>
-                        <TextBox x:Name="ObjectFade_Text" Height="23" Margin="481.4,118.4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="ActorFade_Text" Height="23" Margin="481.4,149.4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="GrassFade_Text" Height="23" Margin="481.4,176.4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="ItemFade_Text" Height="23" Margin="481.4,207.4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="ObjectFade_Text" Height="23" Margin="478.4,116.4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="ActorFade_Text" Height="23" Margin="478.4,146.4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="GrassFade_Text" Height="23" Margin="478.4,174.4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="ItemFade_Text" Height="23" Margin="478.4,205.4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
                         <CheckBox x:Name="EssentialKillable" Content="Essential NPCs killable" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,204.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="162"/>
                         <CheckBox x:Name="DisableGore" Content="Disable Gore" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,227.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="162"/>
                         <CheckBox x:Name="EnableGamePad" Content="Enable Gamepad" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,250.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="162"/>
                         <CheckBox x:Name="EnableCrossair" Content="Enable Crosshair" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,4.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="162"/>
                         <TextBox x:Name="AutoSaveEveryXMin" Height="23" Margin="420.4,30.4,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
-                        <TextBlock x:Name="textBlock_Copy3" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,32.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" FontSize="13.333" RenderTransformOrigin="0.476,0.846" Height="18" Grid.Row="1" Text="Autosave interval:"/>
+                        <TextBlock x:Name="textBlock_Copy3" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,32.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" FontSize="13.333" RenderTransformOrigin="0.476,0.846" Height="18" Grid.Row="1" Text="Autosave interval"/>
                         <TextBox x:Name="_3rdPersonaimfov" Height="23" Margin="420.4,58.4,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
                         <TextBlock x:Name="textBlock_Copy4" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,60.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" FontSize="13.333" RenderTransformOrigin="0.476,0.846" Height="18" Grid.Row="1" Text="3rd Person Aim FOV"/>
                         <CheckBox x:Name="NPCsUseAmmo" Content="NPCs Use Ammo" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,27.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="162"/>
                         <TextBox x:Name="DefaultWaithours_input" Height="23" Margin="420.4,86.4,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
-                        <TextBlock x:Name="DefaultWaithours" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,88.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" FontSize="13.333" RenderTransformOrigin="0.476,0.846" Height="18" Grid.Row="1" Text="Default Wait Hours:"/>
-                        <CheckBox x:Name="ExperimentalThreading" Content="Enable Experimental Threading" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,50.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="182"/>
-
+                        <TextBlock x:Name="DefaultWaithours" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,88.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" FontSize="13.333" RenderTransformOrigin="0.476,0.846" Height="18" Grid.Row="1" Text="Default Wait Hours"/>
+                        <CheckBox x:Name="ExperimentalThreading" Content="Experimental Threading" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,50.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="182"/>
+                        <CheckBox x:Name="CompanionWarping" Content="Companion Warping" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,73.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="182"/>
+                        <ComboBox x:Name="uGridsToLoad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="55.2,63.6,0,0" Grid.Column="1" Height="25"  Grid.Row="2" Grid.ColumnSpan="2">
+                            <ListBoxItem Content="5"/>
+                            <ListBoxItem Content="7"/>
+                            <ListBoxItem Content="9"/>
+                            <ListBoxItem Content="11"/>
+                            <ListBoxItem Content="13"/>
+                        </ComboBox>
+                        <TextBlock x:Name="textBox_Copy13" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="Grids to load" VerticalAlignment="Top" Width="105" Grid.ColumnSpan="2" RenderTransformOrigin="0.503,0.516" Margin="0,63.6,0,0" Grid.Row="2" />
                     </Grid>
                 </ScrollViewer>
 
