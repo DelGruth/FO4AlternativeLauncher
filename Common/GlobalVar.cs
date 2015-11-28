@@ -315,9 +315,152 @@ namespace FO4AlternativeLauncher.Common
             VarName = "iDefaultWaitHours",
             VarValue = 1.ToString(),
             pref = false
+        }; public static AppSettingFormat bBackgroundPathing = new AppSettingFormat()
+        {
+            Section = "Pathfinding",
+            VarName = "bBackgroundPathing",
+            VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bBackgroundCellLoads = new AppSettingFormat()
+        {
+            Section = "BackgroundLoad",
+            VarName = "bBackgroundCellLoads",
+            VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bBackgroundNavmeshUpdate = new AppSettingFormat()
+        {
+            Section = "BackgroundLoad",
+            VarName = "bBackgroundNavmeshUpdate",
+            VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bUseThreadedParticleSystem = new AppSettingFormat()
+        {
+            Section = "General",
+            VarName = "bUseThreadedParticleSystem",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bUseMultiThreadedTrees = new AppSettingFormat()
+        {
+            Section = "BackgroundLoad",
+            VarName = "bUseMultiThreadedTrees",
+            VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
         };
+        #region Don't add
+        public static AppSettingFormat fUpdateBudgetMS = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "fUpdateBudgetMS",
+            VarValue = 1.2.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat fExtraTaskletBudgetMS = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "fExtraTaskletBudgetMS",
+            VarValue = 1.2.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        };
+        public static AppSettingFormat fPostLoadUpdateTimeMS = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "fExtraTaskletBudgetMS",
+            VarValue = 500.0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat iMinMemoryPageSize = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "iMinMemoryPageSize",
+            VarValue = 128.0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        };
+        public static AppSettingFormat iMaxMemoryPageSize = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "iMaxMemoryPageSize",
+            VarValue = 512.0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        };
+        public static AppSettingFormat iMaxAllocatedMemoryBytes = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "iMaxAllocatedMemoryBytes",
+            VarValue = 153600.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bEnableLogging = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "iMaxAllocatedMemoryBytes",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        };
+        public static AppSettingFormat bEnableProfiling = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "bEnableProfiling",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        };
+        public static AppSettingFormat bEnableTrace = new AppSettingFormat()
+        {
+            Section = "Papyrus",
+            VarName = "bEnableTrace",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        };
+        #endregion
 
+        public static AppSettingFormat bUseCompanionWarping = new AppSettingFormat()
+        {
+            Section = "Pathfinding",
+            VarName = "bUseCompanionWarping",
+            VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat uGridsToLoad = new AppSettingFormat()
+        {
+            Section = "General",
+            VarName = "uGridsToLoad",
+            VarValue = 5.ToString(),
+            vsc = new global::VisualSettingConverter(new string[7] {"1","3", "5", "7", "9", "11", "13" }, new int[5] { 0, 1, 2, 3, 4 }),
+        };
+        public static AppSettingFormat uExteriorCellBuffer = new AppSettingFormat()
+        {
+            pref =false,
+            Section = "General",
+            VarName = "uExterior Cell Buffer",
+            VarValue = 36.ToString(),
+            vsc = new global::VisualSettingConverter(new string[7] {"4","16", "36", "64", "100", "144", "196" }, new int[5] { 0, 1, 2, 3, 4 }),
+        }; public static AppSettingFormat iPreloadSizeLimit = new AppSettingFormat()
+        {
+            pref =false,
+            Section = "General",
+            VarName = "iPreloadSizeLimit",
+            VarValue = 419430400.ToString(),
+            vsc = new global::VisualSettingConverter(new string[7] { "1048576", "9437184","26214400", "51380224", "84934656", "126877696", "177209344" }, new int[5] { 0, 1, 2, 3, 4 }),
+        }; public static AppSettingFormat fChancesToPlayAlternateIntro = new AppSettingFormat()
+        {
+            pref =false,
+            Section = "General",
+            VarName = "fChancesToPlayAlternateIntro",
+            VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "1", "0", }, new int[2] { 0, 1}),
+        };
         
+
 
 
         #endregion
@@ -332,7 +475,8 @@ namespace FO4AlternativeLauncher.Common
                 ,Vsync,FOV_1st,FOV_3rd,MaxParticles,ObjectFade,ActorFade,ItemFade,GrassFade,iNumHWThreads,iNumThreads,
                 iMinGrassSize, bAllowCreateGrass,bAllowLoadGrass,iMaxGrassTypesPerTexure,SkipIntro ,bEnablePlatform
                 ,bEnableAnalytics,bShowTutorials,bMaximizeWindow,bMultiThreadedRendering,bEssentialTakeNoDamage,bDisableAllGore,
-                bGamepadEnable,bCrosshairEnabled,fAutosaveEveryXMins,f3rdPersonAimFOV,bForceNPCsUseAmmo,iDefaultWaitHours };
+                bGamepadEnable,bCrosshairEnabled,fAutosaveEveryXMins,f3rdPersonAimFOV,bForceNPCsUseAmmo,iDefaultWaitHours,
+                bUseThreadedParticleSystem,bUseCompanionWarping,uGridsToLoad,uExteriorCellBuffer,iPreloadSizeLimit,fChancesToPlayAlternateIntro};
 
 
         public const int Vsync_Off = 0;

@@ -113,6 +113,8 @@ namespace FO4AlternativeLauncher
                 Aspect_Ratio.SelectedIndex = 0;
                 ratio169Selected = true;
                 ratio1610Selected = false;
+                ratio43selected = false;
+
 
                 if (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 450)
                 {
@@ -136,16 +138,17 @@ namespace FO4AlternativeLauncher
 
             }
 
-            else if(Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 500 ||
+            else if (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 500 ||
                Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 640 ||
                Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 800 ||
-               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 900||
+               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 900 ||
                 Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1050)
             {
                 if (Aspect_Ratio.SelectedIndex == GlobalVar.AspectRatio1610)
                 {
                     ratio169Selected = false;
                     ratio1610Selected = true;
+                    ratio43selected = false;
                     Aspect_Ratio.SelectedIndex = 1;
                 }
                 if (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 500)
@@ -169,11 +172,20 @@ namespace FO4AlternativeLauncher
                     Resolution_ComboBox.SelectedIndex = 4;
                 }
 
+
+                Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "2560 x 1080" });
+                Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "3440 x 1440" });
+
             }
-            else
+            else if (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 768 ||
+               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 864 ||
+               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 960 ||
+               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1050 ||
+                Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1200)
             {
                 ratio1610Selected = false;
                 ratio169Selected = false;
+                ratio43selected = true;
                 Aspect_Ratio.SelectedIndex = 2;
                 if (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 768)
                 {
@@ -196,6 +208,18 @@ namespace FO4AlternativeLauncher
                     Resolution_ComboBox.SelectedIndex = 4;
                 }
 
+            }
+            else
+            {
+                Aspect_Ratio.SelectedIndex = 3;
+                if (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1080)
+                {
+                    Resolution_ComboBox.SelectedIndex = 0;
+                }
+                else if (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1440)
+                {
+                    Resolution_ComboBox.SelectedIndex = 1;
+                }
             }
             if (GlobalVar.sAntiAliasing.VarValue == GlobalVar.sAntiAliasingHigh)
             {
@@ -569,8 +593,56 @@ namespace FO4AlternativeLauncher
             }
 
             DefaultWaithours_input.Text = GlobalVar.iDefaultWaitHours.VarValue.ToString();
-        }
 
+
+            if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 1)
+            {
+                uGridsToLoad.SelectedIndex = 0;
+            }
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 3)
+            {
+                uGridsToLoad.SelectedIndex = 1;
+            }
+            else if(Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 5)
+            {
+                uGridsToLoad.SelectedIndex = 2;
+            }
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 7)
+            {
+                uGridsToLoad.SelectedIndex = 3;
+            }
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 9)
+            {
+                uGridsToLoad.SelectedIndex = 4;
+            }
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 11)
+            {
+                uGridsToLoad.SelectedIndex = 5;
+            }
+            else if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 13)
+            {
+                uGridsToLoad.SelectedIndex = 6;
+            }
+            if (Convert.ToInt32(GlobalVar.bUseCompanionWarping.VarValue) == 1)
+            {
+                CompanionWarping.IsChecked = true;
+            }
+            else
+            {
+                CompanionWarping.IsChecked = false;
+            }
+
+            if(Convert.ToInt32(GlobalVar.bUseThreadedParticleSystem.VarValue) == 1)
+            {
+                ExperimentalThreading.IsChecked = true;
+            }else
+            {
+                ExperimentalThreading.IsChecked = false;
+            }
+
+
+        }
+        bool ratio43selected = false;
         //Export a custom preset of values
         private void Export_Settings(object sender, RoutedEventArgs arg)
         {
@@ -647,6 +719,7 @@ namespace FO4AlternativeLauncher
             {
                 ratio169Selected = true;
                 ratio1610Selected = false;
+                ratio43selected = false;
                 Resolution_ComboBox.Items.Clear();
                 Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "800 x 450" });
                 Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "1280 x 720" });
@@ -657,6 +730,7 @@ namespace FO4AlternativeLauncher
             {
                 ratio169Selected = false;
                  ratio1610Selected = true;
+                ratio43selected = false;
 
                 Resolution_ComboBox.Items.Clear();
                 Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "800 x 500" });
@@ -668,12 +742,18 @@ namespace FO4AlternativeLauncher
             {
                 ratio169Selected = false;
                  ratio1610Selected = false;
+                ratio43selected = true;
+
                 Resolution_ComboBox.Items.Clear();
                 Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "1024 x 768" });
                 Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "1152 x 864" });
                 Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "1280 x 960" });
                 Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "1400 x 1050" });
                 Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "1600 x 1200" });
+            }else  if (Aspect_Ratio.SelectedIndex == 3)
+            {
+                Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "2560 x 1080" });
+                Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "3440 x 1440" });
             }
 
         }
@@ -752,6 +832,8 @@ namespace FO4AlternativeLauncher
         void SetAllVarValues()
         {
             try {
+                SetV02Values();
+
                 SetDefaultWaitHours();
                 SetNPCsUseAmmo();
                 Set3rdPersonAimFOV();
@@ -777,6 +859,35 @@ namespace FO4AlternativeLauncher
             {
                 MessageBox.Show(e.Message + " || " + e.Source.ToString() + " || " + e.StackTrace);
             }
+
+        }
+
+        private void SetV02Values()
+        {
+            SetuGridValue();
+            SetCompanionWarp();
+            SetExperimentalThreading();
+        }
+
+        private void SetuGridValue()
+        {
+            GlobalVar.uGridsToLoad.ChangeValueAuto(uGridsToLoad.SelectedIndex);
+            GlobalVar.iPreloadSizeLimit.ChangeValueAuto(uGridsToLoad.SelectedIndex);
+            GlobalVar.uExteriorCellBuffer.ChangeValueAuto(uGridsToLoad.SelectedIndex);
+        }
+
+        private void SetCompanionWarp()
+        {
+            GlobalVar.bUseCompanionWarping.ChangeValueAuto(Convert.ToInt32(CompanionWarping.IsChecked));
+        }
+
+        private void SetExperimentalThreading()
+        {
+            GlobalVar.bBackgroundPathing.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
+            GlobalVar.bBackgroundCellLoads.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
+            GlobalVar.bBackgroundNavmeshUpdate.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
+            GlobalVar.bUseThreadedParticleSystem.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
+            GlobalVar.bUseMultiThreadedTrees.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
 
         }
 
@@ -881,6 +992,7 @@ namespace FO4AlternativeLauncher
         private void SetIntroSkip()
         {
             GlobalVar.SkipIntro.ChangeValueAuto(Convert.ToInt32(SkipIntro.IsChecked));
+            GlobalVar.fChancesToPlayAlternateIntro.ChangeValueAuto(Convert.ToInt32(SkipIntro.IsChecked));
         }
 
         private void SetGrassQuality()
@@ -1148,22 +1260,22 @@ namespace FO4AlternativeLauncher
                     GlobalVar.Resolution_Height.ChangeValue(640);
                     GlobalVar.Resolution_Width.ChangeValue(1024);
                 }
-                else if (Resolution_ComboBox.SelectedIndex == 0)
+                else if (Resolution_ComboBox.SelectedIndex == 2)
                 {
                     GlobalVar.Resolution_Height.ChangeValue(800);
                     GlobalVar.Resolution_Width.ChangeValue(1280);
                 }
-                else if (Resolution_ComboBox.SelectedIndex == 0)
+                else if (Resolution_ComboBox.SelectedIndex == 3)
                 {
                     GlobalVar.Resolution_Height.ChangeValue(900);
                     GlobalVar.Resolution_Width.ChangeValue(1440);
                 }
-                else if (Resolution_ComboBox.SelectedIndex == 0)
+                else if (Resolution_ComboBox.SelectedIndex == 4)
                 {
                     GlobalVar.Resolution_Height.ChangeValue(1050);
                     GlobalVar.Resolution_Width.ChangeValue(1680);
                 }
-            }else if (!ratio1610Selected && !ratio169Selected)
+            }else if (ratio43selected)
             {
                 if (Resolution_ComboBox.SelectedIndex == 0)
                 {
@@ -1175,20 +1287,32 @@ namespace FO4AlternativeLauncher
                     GlobalVar.Resolution_Height.ChangeValue(864);
                     GlobalVar.Resolution_Width.ChangeValue(1152);
                 }
-                else if (Resolution_ComboBox.SelectedIndex == 0)
+                else if (Resolution_ComboBox.SelectedIndex == 2)
                 {
                     GlobalVar.Resolution_Height.ChangeValue(960);
                     GlobalVar.Resolution_Width.ChangeValue(1280);
                 }
-                else if (Resolution_ComboBox.SelectedIndex == 0)
+                else if (Resolution_ComboBox.SelectedIndex == 3)
                 {
                     GlobalVar.Resolution_Height.ChangeValue(1050);
                     GlobalVar.Resolution_Width.ChangeValue(1400);
                 }
-                else if (Resolution_ComboBox.SelectedIndex == 0)
+                else if (Resolution_ComboBox.SelectedIndex == 4)
                 {
                     GlobalVar.Resolution_Height.ChangeValue(1200);
                     GlobalVar.Resolution_Width.ChangeValue(1600);
+                }
+            }else if (!ratio43selected && !ratio169Selected && !ratio1610Selected)
+            {
+                if(Resolution_ComboBox.SelectedIndex == 0)
+                {
+                    GlobalVar.Resolution_Height.ChangeValue(1080);
+                    GlobalVar.Resolution_Width.ChangeValue(2560);
+                }
+                else if(Resolution_ComboBox.SelectedIndex == 1)
+                {
+                    GlobalVar.Resolution_Height.ChangeValue(1440);
+                    GlobalVar.Resolution_Width.ChangeValue(3440);
                 }
             }
         }
