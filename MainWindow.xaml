@@ -170,7 +170,7 @@
                         <TextBox x:Name="ActorFade_Text" Height="23" Margin="481.4,149.4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
                         <TextBox x:Name="GrassFade_Text" Height="23" Margin="481.4,176.4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
                         <TextBox x:Name="ItemFade_Text" Height="23" Margin="481.4,207.4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
-                        <CheckBox x:Name="EssentialKillable" Content="Essential NPCs killable" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,204.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="162"/>
+                        <CheckBox x:Name="EssentialKillable" Content="Essential NPCs Immortal" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,204.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="162"/>
                         <CheckBox x:Name="DisableGore" Content="Disable Gore" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,227.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="162"/>
                         <CheckBox x:Name="EnableGamePad" Content="Enable Gamepad" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,250.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="162"/>
                         <CheckBox x:Name="EnableCrossair" Content="Enable Crosshair" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,4.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="162"/>
@@ -181,6 +181,7 @@
                         <CheckBox x:Name="NPCsUseAmmo" Content="NPCs Use Ammo" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,27.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="162"/>
                         <TextBox x:Name="DefaultWaithours_input" Height="23" Margin="420.4,86.4,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
                         <TextBlock x:Name="DefaultWaithours" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,88.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" FontSize="13.333" RenderTransformOrigin="0.476,0.846" Height="18" Grid.Row="1" Text="Default Wait Hours:"/>
+                        <CheckBox x:Name="BackgroundfileLoader" Content="Enable Background File Loader" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,50.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="162"/>
 
                     </Grid>
                 </ScrollViewer>

@@ -267,7 +267,7 @@ namespace FO4AlternativeLauncher.Common
             Section = "Gameplay",
             VarName = "bEssentialTakeNoDamage",
             VarValue = 0.ToString(),
-            vsc = new global::VisualSettingConverter(new string[2] { "1", "0" }, new int[2] { 0, 1 }),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
             pref = false
         }; public static AppSettingFormat bDisableAllGore = new AppSettingFormat()
         {
@@ -320,10 +320,18 @@ namespace FO4AlternativeLauncher.Common
             Section = "ScreenSplatter",
             VarName = "bBloodSplatterEnabled",
             VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bUseBackgroundFileLoader = new AppSettingFormat()
+        {
+            Section = "BackgroundLoad",
+            VarName = "bUseBackgroundFileLoader",
+            VarValue = 0.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
             pref = false
         };
 
-  
+
 
 
         #endregion
@@ -338,8 +346,9 @@ namespace FO4AlternativeLauncher.Common
                 ,Vsync,FOV_1st,FOV_3rd,MaxParticles,ObjectFade,ActorFade,ItemFade,GrassFade,iNumHWThreads,iNumThreads,
                 iMinGrassSize, bAllowCreateGrass,bAllowLoadGrass,iMaxGrassTypesPerTexure,SkipIntro ,bEnablePlatform
                 ,bEnableAnalytics,bShowTutorials,bMaximizeWindow,bMultiThreadedRendering,bEssentialTakeNoDamage,bDisableAllGore,
-                bGamepadEnable,bCrosshairEnabled,fAutosaveEveryXMins,f3rdPersonAimFOV,bForceNPCsUseAmmo,iDefaultWaitHours };
-
+                bGamepadEnable,bCrosshairEnabled,fAutosaveEveryXMins,f3rdPersonAimFOV,bForceNPCsUseAmmo,iDefaultWaitHours       
+               ,bUseBackgroundFileLoader,bBloodSplatterEnabled
+ };
 
         public const int Vsync_Off = 0;
         public const int Vsync_On = 1;

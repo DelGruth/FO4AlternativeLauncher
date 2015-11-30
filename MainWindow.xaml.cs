@@ -569,6 +569,14 @@ namespace FO4AlternativeLauncher
             }
 
             DefaultWaithours_input.Text = GlobalVar.iDefaultWaitHours.VarValue.ToString();
+            if (Convert.ToInt32(GlobalVar.bUseBackgroundFileLoader.VarValue) == 1)
+            {
+                BackgroundfileLoader.IsChecked = true;
+            }
+            else
+            {
+                BackgroundfileLoader.IsChecked = false;
+            }
         }
 
         //Export a custom preset of values
@@ -752,6 +760,7 @@ namespace FO4AlternativeLauncher
         void SetAllVarValues()
         {
             try {
+                SetBackGroundFileLoader();
                 SetDefaultWaitHours();
                 SetNPCsUseAmmo();
                 Set3rdPersonAimFOV();
@@ -778,6 +787,11 @@ namespace FO4AlternativeLauncher
                 MessageBox.Show(e.Message + " || " + e.Source.ToString() + " || " + e.StackTrace);
             }
 
+        }
+
+        private void SetBackGroundFileLoader()
+        {
+            GlobalVar.bUseBackgroundFileLoader.ChangeValueAuto(Convert.ToInt32(BackgroundfileLoader.IsChecked));
         }
 
         private void SetDefaultWaitHours()
