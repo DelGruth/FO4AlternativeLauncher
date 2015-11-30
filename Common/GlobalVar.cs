@@ -315,9 +315,15 @@ namespace FO4AlternativeLauncher.Common
             VarName = "iDefaultWaitHours",
             VarValue = 1.ToString(),
             pref = false
+        }; public static AppSettingFormat bBloodSplatterEnabled = new AppSettingFormat()
+        {
+            Section = "ScreenSplatter",
+            VarName = "bBloodSplatterEnabled",
+            VarValue = 1.ToString(),
+            pref = false
         };
 
-        
+  
 
 
         #endregion

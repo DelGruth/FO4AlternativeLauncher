@@ -819,6 +819,8 @@ namespace FO4AlternativeLauncher
         private void SetDisableGore()
         {
             GlobalVar.bDisableAllGore.ChangeValueAuto(Convert.ToInt32(DisableGore.IsChecked));
+            GlobalVar.bBloodSplatterEnabled.ChangeValueAuto(Convert.ToInt32(DisableGore.IsChecked));
+
         }
 
         private void SetEssentialNPCKillable()
