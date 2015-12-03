@@ -315,6 +315,7 @@ namespace FO4AlternativeLauncher.Common
             VarName = "iDefaultWaitHours",
             VarValue = 1.ToString(),
             pref = false
+<<<<<<< HEAD
         }; public static AppSettingFormat bBackgroundPathing = new AppSettingFormat()
         {
             Section = "Pathfinding",
