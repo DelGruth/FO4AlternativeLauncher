@@ -267,7 +267,7 @@ namespace FO4AlternativeLauncher.Common
             Section = "Gameplay",
             VarName = "bEssentialTakeNoDamage",
             VarValue = 0.ToString(),
-            vsc = new global::VisualSettingConverter(new string[2] { "1", "0" }, new int[2] { 0, 1 }),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
             pref = false
         }; public static AppSettingFormat bDisableAllGore = new AppSettingFormat()
         {
@@ -315,7 +315,6 @@ namespace FO4AlternativeLauncher.Common
             VarName = "iDefaultWaitHours",
             VarValue = 1.ToString(),
             pref = false
-<<<<<<< HEAD
         }; public static AppSettingFormat bBackgroundPathing = new AppSettingFormat()
         {
             Section = "Pathfinding",
@@ -402,6 +401,17 @@ namespace FO4AlternativeLauncher.Common
         {
             Section = "Papyrus",
             VarName = "iMaxAllocatedMemoryBytes",
+        }; public static AppSettingFormat bBloodSplatterEnabled = new AppSettingFormat()
+        {
+            Section = "ScreenSplatter",
+            VarName = "bBloodSplatterEnabled",
+            VarValue = 1.ToString(),
+            vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
+            pref = false
+        }; public static AppSettingFormat bUseBackgroundFileLoader = new AppSettingFormat()
+        {
+            Section = "BackgroundLoad",
+            VarName = "bUseBackgroundFileLoader",
             VarValue = 0.ToString(),
             vsc = new global::VisualSettingConverter(new string[2] { "0", "1" }, new int[2] { 0, 1 }),
             pref = false
@@ -423,6 +433,7 @@ namespace FO4AlternativeLauncher.Common
             pref = false
         };
         #endregion
+
 
         public static AppSettingFormat bUseCompanionWarping = new AppSettingFormat()
         {
@@ -464,6 +475,8 @@ namespace FO4AlternativeLauncher.Common
 
 
 
+
+
         #endregion
 
         public readonly List<AppSettingFormat> AllFalloutSettings = new List<AppSettingFormat>()
@@ -476,8 +489,13 @@ namespace FO4AlternativeLauncher.Common
                 ,Vsync,FOV_1st,FOV_3rd,MaxParticles,ObjectFade,ActorFade,ItemFade,GrassFade,iNumHWThreads,iNumThreads,
                 iMinGrassSize, bAllowCreateGrass,bAllowLoadGrass,iMaxGrassTypesPerTexure,SkipIntro ,bEnablePlatform
                 ,bEnableAnalytics,bShowTutorials,bMaximizeWindow,bMultiThreadedRendering,bEssentialTakeNoDamage,bDisableAllGore,
+
                 bGamepadEnable,bCrosshairEnabled,fAutosaveEveryXMins,f3rdPersonAimFOV,bForceNPCsUseAmmo,iDefaultWaitHours,
-                bUseThreadedParticleSystem,bUseCompanionWarping,uGridsToLoad,uExteriorCellBuffer,iPreloadSizeLimit,fChancesToPlayAlternateIntro};
+                bUseThreadedParticleSystem,bUseCompanionWarping,uGridsToLoad,uExteriorCellBuffer,iPreloadSizeLimit,fChancesToPlayAlternateIntro
+        ,bUseBackgroundFileLoader,bBloodSplatterEnabled
+
+               
+ };
 
 
         public const int Vsync_Off = 0;
