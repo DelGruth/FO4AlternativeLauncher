@@ -593,8 +593,8 @@ namespace FO4AlternativeLauncher
             }
 
             DefaultWaithours_input.Text = GlobalVar.iDefaultWaitHours.VarValue.ToString();
-<<<<<<< HEAD
-=======
+
+
             if (Convert.ToInt32(GlobalVar.bUseBackgroundFileLoader.VarValue) == 1)
             {
                 BackgroundfileLoader.IsChecked = true;
@@ -603,8 +603,8 @@ namespace FO4AlternativeLauncher
             {
                 BackgroundfileLoader.IsChecked = false;
             }
-        }
->>>>>>> 0.2.1
+        
+
 
 
             if (Convert.ToInt32(GlobalVar.uGridsToLoad.VarValue) == 1)
@@ -844,12 +844,10 @@ namespace FO4AlternativeLauncher
         void SetAllVarValues()
         {
             try {
-<<<<<<< HEAD
                 SetV02Values();
 
-=======
                 SetBackGroundFileLoader();
->>>>>>> 0.2.1
+
                 SetDefaultWaitHours();
                 SetNPCsUseAmmo();
                 Set3rdPersonAimFOV();
@@ -878,7 +876,6 @@ namespace FO4AlternativeLauncher
 
         }
 
-<<<<<<< HEAD
         private void SetV02Values()
         {
             SetuGridValue();
@@ -905,12 +902,11 @@ namespace FO4AlternativeLauncher
             GlobalVar.bBackgroundNavmeshUpdate.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
             GlobalVar.bUseThreadedParticleSystem.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
             GlobalVar.bUseMultiThreadedTrees.ChangeValueAuto(Convert.ToInt32(ExperimentalThreading.IsChecked));
+        }
 
-=======
         private void SetBackGroundFileLoader()
         {
             GlobalVar.bUseBackgroundFileLoader.ChangeValueAuto(Convert.ToInt32(BackgroundfileLoader.IsChecked));
->>>>>>> 0.2.1
         }
 
         private void SetDefaultWaitHours()
