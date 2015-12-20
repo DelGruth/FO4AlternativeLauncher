@@ -9,6 +9,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Windows;
 using Microsoft.Win32;
+using System.Data;
 
 namespace FO4AlternativeLauncher.Common
 {
@@ -212,7 +213,7 @@ namespace FO4AlternativeLauncher.Common
 
             //  sIntroSequence = GameIntro_V3_B.bk2
             VarName = "sIntroSequence",
-            VarValue = "GameIntro_V3_B.bk2",
+            VarValue = " ",
             pref = false,
             vsc = new global::VisualSettingConverter(new string[2]
             {
@@ -479,23 +480,7 @@ namespace FO4AlternativeLauncher.Common
 
         #endregion
 
-        public readonly List<AppSettingFormat> AllFalloutSettings = new List<AppSettingFormat>()
-        {       TextureQuality, ShadowQuality, iMaxAnisotropy,  sAntiAliasing, Resolution_Height, Resolution_Width, bSAOEnable,
-                bScreenSpaceBokeh, bDoDepthOfField, iVolumetricLightingQuality, bVolumetricLightingEnable, bScreenSpaceSubsurfaceScattering,
-                bForceIgnoreSmoothness, uMaxSkinDecalsPerActor, uMaxSkinDecals, uMaxDecals, bSkinnedDecals, bDecals,
-                iMaxSkinDecalsPerFrame, iMaxDecalsPerFrame, iDirShadowSplits, fDirShadowDistance, fDirShadowDistance,
-                fShadowDistance, uiOrthoShadowFilter, uiShadowFilter, fBlendSplitDirShadow, MaxFocusShadow, bLensFlare,
-                bMBEnable, bEnableRainOcclusion, bEnableWetnessMaterials, bScreenSpaceReflections, bBorderless, bFull_Screen
-                ,Vsync,FOV_1st,FOV_3rd,MaxParticles,ObjectFade,ActorFade,ItemFade,GrassFade,iNumHWThreads,iNumThreads,
-                iMinGrassSize, bAllowCreateGrass,bAllowLoadGrass,iMaxGrassTypesPerTexure,SkipIntro ,bEnablePlatform
-                ,bEnableAnalytics,bShowTutorials,bMaximizeWindow,bMultiThreadedRendering,bEssentialTakeNoDamage,bDisableAllGore,
-
-                bGamepadEnable,bCrosshairEnabled,fAutosaveEveryXMins,f3rdPersonAimFOV,bForceNPCsUseAmmo,iDefaultWaitHours,
-                bUseThreadedParticleSystem,bUseCompanionWarping,uGridsToLoad,uExteriorCellBuffer,iPreloadSizeLimit,fChancesToPlayAlternateIntro
-        ,bUseBackgroundFileLoader,bBloodSplatterEnabled
-
-               
- };
+   
 
 
         public const int Vsync_Off = 0;
@@ -811,6 +796,43 @@ namespace FO4AlternativeLauncher.Common
         #endregion
 
 
+        public List<GenericIniSetting> GenericSettings = new List<GenericIniSetting>();
+        public readonly List<AppSettingFormat> AllFalloutSettings = new List<AppSettingFormat>()
+        {       TextureQuality, ShadowQuality, iMaxAnisotropy,  sAntiAliasing, Resolution_Height, Resolution_Width, bSAOEnable,
+                bScreenSpaceBokeh, bDoDepthOfField, iVolumetricLightingQuality, bVolumetricLightingEnable, bScreenSpaceSubsurfaceScattering,
+                bForceIgnoreSmoothness, uMaxSkinDecalsPerActor, uMaxSkinDecals, uMaxDecals, bSkinnedDecals, bDecals,
+                iMaxSkinDecalsPerFrame, iMaxDecalsPerFrame, iDirShadowSplits, fDirShadowDistance, fDirShadowDistance,
+                fShadowDistance, uiOrthoShadowFilter, uiShadowFilter, fBlendSplitDirShadow, MaxFocusShadow, bLensFlare,
+                bMBEnable, bEnableRainOcclusion, bEnableWetnessMaterials, bScreenSpaceReflections, bBorderless, bFull_Screen
+                ,Vsync,FOV_1st,FOV_3rd,MaxParticles,ObjectFade,ActorFade,ItemFade,GrassFade,iNumHWThreads,iNumThreads,
+                iMinGrassSize, bAllowCreateGrass,bAllowLoadGrass,iMaxGrassTypesPerTexure,SkipIntro ,bEnablePlatform
+                ,bEnableAnalytics,bShowTutorials,bMaximizeWindow,bMultiThreadedRendering,bEssentialTakeNoDamage,bDisableAllGore,
+                bGamepadEnable,bCrosshairEnabled,fAutosaveEveryXMins,f3rdPersonAimFOV,bForceNPCsUseAmmo,iDefaultWaitHours,
+                bUseThreadedParticleSystem,bUseCompanionWarping,uGridsToLoad,uExteriorCellBuffer,iPreloadSizeLimit,fChancesToPlayAlternateIntro
+               ,bUseBackgroundFileLoader,bBloodSplatterEnabled };
+
+ 
+        //Depricated
+        public  void ReadCustomValues()
+        {
+
+            //if (File.Exists("./FO4Alternativelauncher/GenericIniSettings.xml"))
+            //{
+            //    XmlSerializer ser = new XmlSerializer(typeof(List<GenericIniSetting>));
+            //    XmlReader reader = XmlReader.Create("./FO4Alternativelauncher/GenericIniSettings.xml");
+            //    GenericSettings = (List<GenericIniSetting>)ser.Deserialize(reader);
+            //    reader.Dispose();
+            //}
+            //else
+            //{
+            //    SettingsEditor.Class1 net = new SettingsEditor.Class1();
+            //    net.Serliaize();
+            //    XmlSerializer ser = new XmlSerializer(typeof(List<GenericIniSetting>));
+            //    XmlReader reader = XmlReader.Create("./FO4Alternativelauncher/GenericIniSettings.xml");
+            //    GenericSettings = (List<GenericIniSetting>)ser.Deserialize(reader);
+            //    reader.Dispose();
+            //}
+        }
 
         public static void ReadApplicationIni()
         {
@@ -897,6 +919,11 @@ namespace FO4AlternativeLauncher.Common
             return null;
         }
 
+        public void WriteAdvancedIniSettings(DataSet data)
+        {
+
+        }
+
         public void WriteFallout4PrefIni(string s = "none")
         {
             string iniFolfder = GetIniFolder();
@@ -947,6 +974,7 @@ namespace FO4AlternativeLauncher.Common
 
                     IniFile fallout4Custom = new IniFile(iniFolfder + "Fallout4Prefs.ini");
                     IniFile fallout4ini = new IniFile(iniFolfder + "Fallout4.ini");
+                   // ReadCustomValues();
                     for (int i = 0; i < AllFalloutSettings.Count; i++)
                     {
                         if (AllFalloutSettings[i].pref)

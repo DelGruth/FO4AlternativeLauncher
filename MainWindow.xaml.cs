@@ -4,6 +4,9 @@ using System.Windows;
 using System.Windows.Controls;
 using FO4AlternativeLauncher.Common;
 using System.Diagnostics;
+using System.Data;
+using IniReader;
+
 namespace FO4AlternativeLauncher
 {
     /// <summary>
@@ -11,8 +14,8 @@ namespace FO4AlternativeLauncher
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string[] PossibleIniFilePaths = new string[] {
-        @"C:\Users\" + Environment.UserName + @"\Documents\My Games\Fallout4\",
+        public static string[] PossibleIniFilePaths = new string[] 
+        { @"C:\Users\" + Environment.UserName + @"\Documents\My Games\Fallout4\",
         Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+ @"\My Games\Fallout4\"};
         GlobalVar GlobalVar = new GlobalVar();
         public static string[] PossibleFallout4Paths = new string[] { @"C:\Program Files (x86)\Fallout 4\Fallout4.exe", @"C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Fallout4.exe", @"C:\Steam\SteamApps\common\Fallout 4\Fallout4.exe" };
@@ -22,6 +25,9 @@ namespace FO4AlternativeLauncher
         public static string exePath;
         bool ratio169Selected = false;
         bool ratio1610Selected = false;
+        bool ratio43selected = false;
+        bool useAdvancedConfig = false;
+
 
         public MainWindow()
         {
@@ -61,6 +67,7 @@ namespace FO4AlternativeLauncher
                         GlobalVar.ReadFallout4PrefIni();
                         LoadValues();
                         Exetolaunch.Text = GlobalVar.EXEPath.VarValue;
+                        break;
                     }
                 }
                 if (exists == false)
@@ -101,14 +108,53 @@ namespace FO4AlternativeLauncher
                 return false;
             }
         }
-     
+        DataSet AdvancedSettings = new DataSet();
+        DataSet UserPrefs = new DataSet();
+
         //Convert variables to visual representation
-       public void LoadValues()
+        public void LoadValues()
         {
-            if (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 450 ||
-               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 720 ||
-               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 810 ||
-               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1080)
+            Console.WriteToConsole("Load called");
+            AdvancWindow.IsEnabled = false;
+            //  GenericSettingsDataGrid.DataContext = GlobalVar.GenericSettings;
+            //   set.ReadXml("./FO4Alternativelauncher/GenericIniSettings.xml");
+            if (File.Exists("./FO4Alternativelauncher/Fallout4IniDatabase.xml"))
+            {
+                AdvancedSettings.ReadXml("./FO4Alternativelauncher/Fallout4IniDatabase.xml");
+                dataGridMainDatabase.ItemsSource = AdvancedSettings.Tables[0].DefaultView;
+            }
+            if (File.Exists("./FO4Alternativelauncher/Fallout4PrefDatabase.xml"))
+            {
+                UserPrefs.ReadXml("./FO4Alternativelauncher/Fallout4PrefDatabase.xml");
+                dataGridPref.ItemsSource = UserPrefs.Tables[0].DefaultView;
+            }
+            // GenericSettingsDataGrid.ItemsSource =set.Tables[0].DefaultView ;
+
+
+            AdvancedSettings.Tables[0].Columns["Section"].ReadOnly = true;
+            AdvancedSettings.Tables[0].Columns["Name"].ReadOnly = true;
+
+
+            UserPrefs.Tables[0].Columns["Section"].ReadOnly = true;
+            UserPrefs.Tables[0].Columns["Name"].ReadOnly = true;
+
+
+
+            if (Convert.ToInt32(GlobalVar.OpenConsole.VarValue) == 0)
+            {
+                GlobalVar.OpenConsole.ChangeValue(1);
+                Console.Show();
+            }
+            else
+            {
+                GlobalVar.OpenConsole.ChangeValue(0);
+                Console.Hide();
+            }
+            // GenericSettingsDataGrid.Columns.Add();
+            if ((Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 450 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 800)||
+               (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 720 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 1280)||
+               (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 810 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 1440) ||
+               (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1080 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 1920))
             {
                 Aspect_Ratio.SelectedIndex = 0;
                 ratio169Selected = true;
@@ -138,19 +184,17 @@ namespace FO4AlternativeLauncher
 
             }
 
-            else if (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 500 ||
-               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 640 ||
-               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 800 ||
-               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 900 ||
-                Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1050)
+            else if ((Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 500 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 800) ||
+               (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 640 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 1024) ||
+               (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 800 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 1280) ||
+               (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 900 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 1440) ||
+               (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1050 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 1680))
             {
-                if (Aspect_Ratio.SelectedIndex == GlobalVar.AspectRatio1610)
-                {
+           
                     ratio169Selected = false;
                     ratio1610Selected = true;
                     ratio43selected = false;
                     Aspect_Ratio.SelectedIndex = 1;
-                }
                 if (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 500)
                 {
                     Resolution_ComboBox.SelectedIndex = 0;
@@ -173,15 +217,13 @@ namespace FO4AlternativeLauncher
                 }
 
 
-                Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "2560 x 1080" });
-                Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "3440 x 1440" });
-
+ 
             }
-            else if (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 768 ||
-               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 864 ||
-               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 960 ||
-               Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1050 ||
-                Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1200)
+            else if ((Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 768 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 1024) ||
+               (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 864 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 1152) ||
+               (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 960 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 1280) ||
+               (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1050 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 1400) ||
+               (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1200 && Convert.ToInt32(GlobalVar.Resolution_Width.VarValue) == 1600))
             {
                 ratio1610Selected = false;
                 ratio169Selected = false;
@@ -211,6 +253,9 @@ namespace FO4AlternativeLauncher
             }
             else
             {
+                ratio1610Selected = false;
+                ratio169Selected = false;
+                ratio43selected = false;
                 Aspect_Ratio.SelectedIndex = 3;
                 if (Convert.ToInt32(GlobalVar.Resolution_Height.VarValue) == 1080)
                 {
@@ -221,6 +266,8 @@ namespace FO4AlternativeLauncher
                     Resolution_ComboBox.SelectedIndex = 1;
                 }
             }
+
+
             if (GlobalVar.sAntiAliasing.VarValue == GlobalVar.sAntiAliasingHigh)
             {
                 Console.WriteToConsole("AntiAliasing value "+GlobalVar.sAntiAliasing.VarValue);
@@ -654,7 +701,7 @@ namespace FO4AlternativeLauncher
 
 
         }
-        bool ratio43selected = false;
+  
         //Export a custom preset of values
         private void Export_Settings(object sender, RoutedEventArgs arg)
         {
@@ -764,6 +811,10 @@ namespace FO4AlternativeLauncher
                 Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "1600 x 1200" });
             }else  if (Aspect_Ratio.SelectedIndex == 3)
             {
+                ratio169Selected = false;
+                ratio1610Selected = false;
+                ratio43selected = false;
+                Resolution_ComboBox.Items.Clear();
                 Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "2560 x 1080" });
                 Resolution_ComboBox.Items.Add(new ListBoxItem { Content = "3440 x 1440" });
             }
@@ -776,11 +827,89 @@ namespace FO4AlternativeLauncher
             Environment.Exit(0);
         }
 
-        //Save INI
-        private void SaveButton_Click(object sender, RoutedEventArgs arg)
+        //Save settings
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            if (useAdvancedConfig)
+            {
+                SetAdvancedConfig();
+            }
+
             SetAllVarValues();
             GlobalVar.WriteFallout4PrefIni();
+
+        }
+
+        private void SetAdvancedConfig()
+        {
+            string iniFolfder = GlobalVar.GetIniFolder();
+            IniFile fallout4ini = new IniFile(iniFolfder + "Fallout4.ini");
+            IniFile fallout4pref = new IniFile(iniFolfder + "Fallout4Prefs.ini");
+            for (int i = 0; i < AdvancedSettings.Tables[0].Rows.Count; i++)
+            {
+                if (AdvancedSettings.Tables[0].Rows[i][5].ToString() == "true")
+                {
+                    if (AdvancedSettings.Tables[0].Rows[i][6].ToString() == "false" || !string.IsNullOrWhiteSpace(AdvancedSettings.Tables[0].Rows[i][6].ToString()))
+                    {
+                        if (!string.IsNullOrWhiteSpace(AdvancedSettings.Tables[0].Rows[i][2].ToString()))
+                        {
+                            fallout4ini.Write(AdvancedSettings.Tables[0].Rows[i][1].ToString(), AdvancedSettings.Tables[0].Rows[i][2].ToString(), AdvancedSettings.Tables[0].Rows[i][0].ToString());
+                           
+                        }
+                        else
+                        {
+                            fallout4ini.Write(AdvancedSettings.Tables[0].Rows[i][1].ToString(), AdvancedSettings.Tables[0].Rows[i][4].ToString(), AdvancedSettings.Tables[0].Rows[i][0].ToString());
+                        }
+                    }
+                }
+            }
+            for(int i = 0; i< UserPrefs.Tables[0].Rows.Count; i++)
+            {
+                //5 = include
+                if (UserPrefs.Tables[0].Rows[i][5].ToString() == "true")
+                {
+                    //6 = depricated 
+                    if (UserPrefs.Tables[0].Rows[i][6].ToString() == "false" || !string.IsNullOrWhiteSpace(UserPrefs.Tables[0].Rows[i][6].ToString()))
+                    {
+                        //1 = Key name,0 = Section,3 = Custom Value,4 = default value
+                        if (!string.IsNullOrWhiteSpace(UserPrefs.Tables[0].Rows[i][2].ToString()))
+                        {
+                            fallout4pref.Write(UserPrefs.Tables[0].Rows[i][1].ToString(), UserPrefs.Tables[0].Rows[i][2].ToString(), UserPrefs.Tables[0].Rows[i][0].ToString());
+                            if (UserPrefs.Tables[0].Rows[i][1].ToString() == "fVal2") {
+                                Console.WriteToConsole("fval === "+ UserPrefs.Tables[0].Rows[i][2].ToString()); }
+                        }
+                        else
+                        {
+                            fallout4pref.Write(UserPrefs.Tables[0].Rows[i][1].ToString(), UserPrefs.Tables[0].Rows[i][4].ToString(), UserPrefs.Tables[0].Rows[i][0].ToString());
+                            if (UserPrefs.Tables[0].Rows[i][1].ToString() == "fVal2") {
+                                Console.WriteToConsole("fval DEF === " + UserPrefs.Tables[0].Rows[i][2].ToString()); }
+
+                        }
+                    }
+                }
+            }
+            if (File.Exists("./FO4Alternativelauncher/Fallout4IniDatabase.xml"))
+            {
+                File.Delete("./FO4Alternativelauncher/Fallout4IniDatabase.xml");
+              //  DataSet adv = dataGridMainDatabase.ItemsSource as DataSet;
+                AdvancedSettings.WriteXml("./FO4Alternativelauncher/Fallout4IniDatabase.xml");
+            }
+            else
+            {
+                MessageBox.Show("Setting Database missing");
+
+            }
+            if (File.Exists("./FO4Alternativelauncher/Fallout4PrefDatabase.xml"))
+            {
+                File.Delete("./FO4Alternativelauncher/Fallout4PrefDatabase.xml");
+               // DataSet pref = dataGridPref.ItemsSource as DataSet;
+
+                UserPrefs.WriteXml("./FO4Alternativelauncher/Fallout4PrefDatabase.xml");
+            }
+            else
+            {
+                MessageBox.Show("Preference Database missing");
+            }
         }
 
         //Custom .exe path
@@ -844,31 +973,9 @@ namespace FO4AlternativeLauncher
         void SetAllVarValues()
         {
             try {
+                SetV01Values();
                 SetV02Values();
-
-                SetBackGroundFileLoader();
-
-                SetDefaultWaitHours();
-                SetNPCsUseAmmo();
-                Set3rdPersonAimFOV();
-                SetAutoSaveInterval();
-                SetEnableCrossair();
-                SetEnableGamepad();
-                SetDisableGore();
-                SetEssentialNPCKillable();
-                SetMultithreadedRendering();
-                SetFpsLock();
-                SetFoV();
-                SetFadeSettings();
-                SetMaxParticles();
-                SetCPUCoreValues();
-                SetGrassQuality();
-                SetDisableTutorialPopups();
-                SetIntroSkip();
-                SetDisableAnalytics();
-                SetLaunchersDefaultSettings();
-                SetFitToScreen();
-            }
+             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message + " || " + e.Source.ToString() + " || " + e.StackTrace);
@@ -876,11 +983,60 @@ namespace FO4AlternativeLauncher
 
         }
 
+                //Set settings which are included in the default fallout4 launcher
+        public void SetLaunchersDefaultSettings()
+        {
+            SetLensFlare();
+            SetBlurMotion();
+            SetRainOcclusion();
+            SetWetness();
+            SetSSR();
+            SetWindowMode();
+            SetAnisotropic();
+            SetAntiAliasing();
+            SetResolution();
+            SetTextureQuality();
+            SetShadowQuality();
+            SetShadowDistance();
+            SetDecalQuantity();
+            SetLightingQuality();
+            SetGodRayQuality();
+            SetDOFQuality();
+            SetAmbientOcclusion();
+        }
+       
+        #region Custom Launcher settings
+
+        private void SetV01Values()
+        {
+            SetDefaultWaitHours();
+            SetNPCsUseAmmo();
+            Set3rdPersonAimFOV();
+            SetAutoSaveInterval();
+            SetEnableCrossair();
+            SetEnableGamepad();
+            SetDisableGore();
+            SetEssentialNPCKillable();
+            SetMultithreadedRendering();
+            SetFpsLock();
+            SetFoV();
+            SetFadeSettings();
+            SetMaxParticles();
+            SetCPUCoreValues();
+            SetGrassQuality();
+            SetDisableTutorialPopups();
+            SetIntroSkip();
+            SetDisableAnalytics();
+            SetLaunchersDefaultSettings();
+            SetFitToScreen();
+        }
         private void SetV02Values()
         {
             SetuGridValue();
             SetCompanionWarp();
             SetExperimentalThreading();
+            SetBackGroundFileLoader();
+
         }
 
         private void SetuGridValue()
@@ -968,29 +1124,8 @@ namespace FO4AlternativeLauncher
 
         }
 
-        //Set settings which are included in the default fallout4 launcher
-        public void SetLaunchersDefaultSettings()
-        {
-            SetLensFlare();
-            SetBlurMotion();
-            SetRainOcclusion();
-            SetWetness();
-            SetSSR();
-            SetWindowMode();
-            SetAnisotropic();
-            SetAntiAliasing();
-            SetResolution();
-            SetTextureQuality();
-            SetShadowQuality();
-            SetShadowDistance();
-            SetDecalQuantity();
-            SetLightingQuality();
-            SetGodRayQuality();
-            SetDOFQuality();
-            SetAmbientOcclusion();
-        }
 
-        #region Custom Launcher settings
+
         private void SetDisableAnalytics()
         {
             if (Convert.ToBoolean(Force_Disable_Analytics.IsChecked))
@@ -1027,7 +1162,6 @@ namespace FO4AlternativeLauncher
             else if (GrassQuality.SelectedIndex == 1)
             {
                 GlobalVar.iMinGrassSize.ChangeValue(GlobalVar.iMinGrassSize_Low);
-                GlobalVar.bAllowCreateGrass.ChangeValue(1);
                 GlobalVar.bAllowCreateGrass.ChangeValue(1);
                 GlobalVar.bAllowLoadGrass.ChangeValue(0);
                 GlobalVar.iMaxGrassTypesPerTexure.ChangeValue(7);
@@ -1103,9 +1237,29 @@ namespace FO4AlternativeLauncher
                 GlobalVar.Vsync.ChangeValue(GlobalVar.Vsync_Off);
             }
         }
-        #endregion 
+        #endregion
 
         #region Default Launcher Settings
+        private void ObjectFade_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ObjectFade_Text.Text = ObjectFade.Value.ToString();
+        }
+
+        private void ActorFade_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ActorFade_Text.Text = ActorFade.Value.ToString();
+        }
+
+        private void GrassFade_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            GrassFade_Text.Text = GrassFade.Value.ToString();
+        }
+
+        private void ItemFade_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ItemFade_Text.Text = ItemFade.Value.ToString();
+        }
+
         private void SetLensFlare()
         {
             if ((bool)LensFlare.IsChecked)
@@ -1552,26 +1706,21 @@ namespace FO4AlternativeLauncher
         }
 
 
+
+
         #endregion
 
-        private void ObjectFade_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void UseAdvancedConfig_Click(object sender, RoutedEventArgs e)
         {
-            ObjectFade_Text.Text = ObjectFade.Value.ToString();
-        }
-
-        private void ActorFade_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            ActorFade_Text.Text = ActorFade.Value.ToString();
-        }
-
-        private void GrassFade_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            GrassFade_Text.Text = GrassFade.Value.ToString();
-        }
-
-        private void ItemFade_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            ItemFade_Text.Text = ItemFade.Value.ToString();
+            useAdvancedConfig = !useAdvancedConfig;
+            if (useAdvancedConfig)
+            {
+                AdvancWindow.IsEnabled = true;
+            }
+            else
+            {
+                AdvancWindow.IsEnabled = false;
+            }
         }
     }
 }
