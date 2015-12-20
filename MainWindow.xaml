@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:FO4AlternativeLauncher"
         mc:Ignorable="d"
         Title="Fallout 4 Alternative Launcher" Height="515" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Closing="Window_Closing" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
-    <Grid>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top"  Margin="0,0,-0.4,-13">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80*"/>
             <ColumnDefinition Width="513*"/>
@@ -24,7 +28,7 @@
             </MenuItem>
         </Menu>
 
-        <TabControl x:Name="tabControl" Grid.ColumnSpan="5" HorizontalAlignment="Left" Height="434" VerticalAlignment="Top" Width="782" Margin="0,21,0,0" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <TabControl x:Name="tabControl" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Top"  Margin="0,21,-0.4,0" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="439">
 
 
             <TabItem Header="Settings" Margin="-2,0,-2,-1">
@@ -35,7 +39,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="97.6"/>
                             <RowDefinition/>
-                            <RowDefinition Height="105.2"/>
+                            <RowDefinition Height="272.8"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="35*"/>
@@ -124,11 +128,11 @@
                             <ListBoxItem Content="High"/>
                         </ComboBox>
                         <TextBlock x:Name="textBox_Copy10" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="Depth of Field" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2" RenderTransformOrigin="0.503,0.516" Margin="0,243.4,0,0" Grid.Row="1" />
-                        <ComboBox x:Name="Ambient_OClussion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="55.2,3.6,0,0" Grid.Column="1" Height="25"  Grid.Row="2" Grid.ColumnSpan="2">
+                        <ComboBox x:Name="Ambient_OClussion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="55.2,2.6,0,0" Grid.Column="1" Height="25"  Grid.Row="2" Grid.ColumnSpan="2">
                             <ListBoxItem Content="Off"/>
                             <ListBoxItem Content="SSAO"/>
                         </ComboBox>
-                        <TextBlock x:Name="textBox_Copy11" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="Ambient Occlusion" VerticalAlignment="Top" Width="105" Grid.ColumnSpan="2" RenderTransformOrigin="0.503,0.516" Margin="0,3.6,0,0" Grid.Row="2" />
+                        <TextBlock x:Name="textBox_Copy11" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="Ambient Occlusion" VerticalAlignment="Top" Width="105" Grid.ColumnSpan="2" RenderTransformOrigin="0.503,0.516" Margin="0,2.6,0,0" Grid.Row="2" />
                         <CheckBox x:Name="WindowedMode" Content="Windowed Mode" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,3,0,0" VerticalAlignment="Top" Height="18" Width="108"/>
                         <CheckBox x:Name="Borderless" Content="BorderLess" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,26,0,0" VerticalAlignment="Top" Height="18" RenderTransformOrigin="0.497,0.4" Width="75"/>
                         <CheckBox x:Name="SSR" Content="Screen Space Reflections" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,71,0,0" VerticalAlignment="Top" Height="18" Width="148"/>
@@ -151,7 +155,7 @@
                         <TextBlock x:Name="textBlock1_Copy1" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,173.4,0,0" TextWrapping="Wrap" Text="Grass Fade" VerticalAlignment="Top" FontSize="13.333" Grid.Row="1" Height="18" Width="64"/>
                         <Slider x:Name="ItemFade" Grid.Column="2" HorizontalAlignment="Left" Margin="378.4,205.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="22" ValueChanged="ItemFade_ValueChanged"/>
                         <TextBlock x:Name="textBlock1_Copy2" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,203.4,0,0" TextWrapping="Wrap" Text="Item Fade" VerticalAlignment="Top" FontSize="13.333" Grid.Row="1" Height="18" Width="59"/>
-                        <ComboBox x:Name="GrassQuality" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="55.2,33.6,0,0" Grid.Column="1" Height="25"  Grid.Row="2" Grid.ColumnSpan="2" IsEnabled="False">
+                        <ComboBox x:Name="GrassQuality" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="55.2,32.6,0,0" Grid.Column="1" Height="25"  Grid.Row="2" Grid.ColumnSpan="2" IsEnabled="False">
                             <ListBoxItem Content="Off"/>
                             <ListBoxItem Content="Low"/>
                             <ListBoxItem Content="Medium"/>
@@ -159,7 +163,7 @@
                             <ListBoxItem Content="Very High"/>
                             <ListBoxItem Content="Ultra"/>
                         </ComboBox>
-                        <TextBlock x:Name="textBox_Copy12" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="Grass Quality" VerticalAlignment="Top" Width="105" Grid.ColumnSpan="2" RenderTransformOrigin="0.503,0.516" Margin="0,33.6,0,0" Grid.Row="2" />
+                        <TextBlock x:Name="textBox_Copy12" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="Grass Quality" VerticalAlignment="Top" Width="105" Grid.ColumnSpan="2" RenderTransformOrigin="0.503,0.516" Margin="0,32.6,0,0" Grid.Row="2" />
                         <CheckBox x:Name="SkipIntro" Content="Skip Intro" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,111.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="90"/>
                         <CheckBox x:Name="DisableTutorialPopups" Content="Disable Tutorial pop-ups" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,134.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="148"/>
                         <CheckBox x:Name="Force_Disable_Analytics" Content="Disable Analytics" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,158.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="Disables the analytics settings in the ini,or leaves it at it's current value." Width="148" IsEnabled="False"/>
@@ -176,18 +180,18 @@
 
                         <CheckBox x:Name="DisableGore" Content="Disable Gore" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,227.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="162"/>
                         <CheckBox x:Name="EnableGamePad" Content="Enable Gamepad" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,250.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="162"/>
-                        <CheckBox x:Name="EnableCrossair" Content="Enable Crosshair" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,4.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="162"/>
+                        <CheckBox x:Name="EnableCrossair" Content="Enable Crosshair" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,3.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="162"/>
                         <TextBox x:Name="AutoSaveEveryXMin" Height="23" Margin="420.4,30.4,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
                         <TextBlock x:Name="textBlock_Copy3" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,32.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" FontSize="13.333" RenderTransformOrigin="0.476,0.846" Height="18" Grid.Row="1" Text="Autosave interval"/>
                         <TextBox x:Name="_3rdPersonaimfov" Height="23" Margin="420.4,58.4,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
                         <TextBlock x:Name="textBlock_Copy4" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,60.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" FontSize="13.333" RenderTransformOrigin="0.476,0.846" Height="18" Grid.Row="1" Text="3rd Person Aim FOV"/>
-                        <CheckBox x:Name="NPCsUseAmmo" Content="NPCs Use Ammo" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,27.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="162"/>
+                        <CheckBox x:Name="NPCsUseAmmo" Content="NPCs Use Ammo" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,26.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="162"/>
                         <TextBox x:Name="DefaultWaithours_input" Height="23" Margin="420.4,86.4,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="39" ToolTip="" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
 
                         <TextBlock x:Name="DefaultWaithours" Grid.Column="2" HorizontalAlignment="Left" Margin="284.4,88.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" FontSize="13.333" RenderTransformOrigin="0.476,0.846" Height="18" Grid.Row="1" Text="Default Wait Hours"/>
-                        <CheckBox x:Name="ExperimentalThreading" Content="Experimental Threading" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,50.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="182"/>
-                        <CheckBox x:Name="CompanionWarping" Content="Companion Warping" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,73.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="182"/>
-                        <ComboBox x:Name="uGridsToLoad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="55.2,63.6,0,0" Grid.Column="1" Height="25"  Grid.Row="2" Grid.ColumnSpan="2">
+                        <CheckBox x:Name="ExperimentalThreading" Content="Experimental Threading" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,49.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="182"/>
+                        <CheckBox x:Name="CompanionWarping" Content="Companion Warping" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,72.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="182"/>
+                        <ComboBox x:Name="uGridsToLoad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="55.2,62.6,0,0" Grid.Column="1" Height="25"  Grid.Row="2" Grid.ColumnSpan="2">
                             <ListBoxItem Content="1"/>
                             <ListBoxItem Content="3"/>
                             <ListBoxItem Content="5"/>
@@ -196,13 +200,37 @@
                             <ListBoxItem Content="11"/>
                             <ListBoxItem Content="13"/>
                         </ComboBox>
-                        <TextBlock x:Name="textBox_Copy13" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="Grids to load" VerticalAlignment="Top" Width="105" Grid.ColumnSpan="2" RenderTransformOrigin="0.503,0.516" Margin="0,63.6,0,0" Grid.Row="2" />
-                        <CheckBox x:Name="BackgroundfileLoader" Content="Enable Background File Loader" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,50.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="162"/>
+                        <TextBlock x:Name="textBox_Copy13" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="Grids to load" VerticalAlignment="Top" Width="105" Grid.ColumnSpan="2" RenderTransformOrigin="0.503,0.516" Margin="0,62.6,0,0" Grid.Row="2" />
+                        <CheckBox x:Name="BackgroundfileLoader" Content="Background File Loader" Grid.Column="2" HorizontalAlignment="Left" Margin="97.4,95.6,0,0" VerticalAlignment="Top" Height="18" Grid.Row="2" ToolTip="" Width="162"/>
+                        <CheckBox x:Name="UseAdvancedConfig" Content="Use Advanced Configuration" Grid.Column="2" HorizontalAlignment="Left" Margin="284.2,240.4,0,0" VerticalAlignment="Top" Height="18" Grid.Row="1" ToolTip="" Width="179" Click="UseAdvancedConfig_Click"/>
 
                     </Grid>
                 </ScrollViewer>
 
             </TabItem>
+            <TabItem x:Name="AdvancWindow" Header="Advanced Configuration">
+                <TabControl x:Name="tabControl1" HorizontalAlignment="Stretch" Margin="0,-1,-0.2,0.2" VerticalAlignment="Stretch" TabStripPlacement="Left" ClipToBounds="True">
+                    <TabItem Header="User Prefs">
+                        <DataGrid x:Name="dataGridPref"  HorizontalAlignment="Stretch" VerticalAlignment="Top"  Margin="0,0,-2.6,-2.6" RenderTransformOrigin="0.489,0.422">
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+                            </DataGrid.Resources>
+                        </DataGrid>
+                    </TabItem>
+                    <TabItem Header="Advanced" ClipToBounds="True">
+
+                        <DataGrid x:Name="dataGridMainDatabase"  HorizontalAlignment="Stretch" VerticalAlignment="Top"  Margin="0,0,-2.6,-2.6" RenderTransformOrigin="0.489,0.422">
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+                            </DataGrid.Resources>
+                        </DataGrid>
+                    </TabItem>
+
+                </TabControl>
+            </TabItem>
+
             <TabItem Header="Launcher" Margin="-2,0,-1.6,-1">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -221,10 +249,10 @@
 
 
         </TabControl>
-
         <Button x:Name="SaveButton" Content="Save Settings" Grid.Column="1" HorizontalAlignment="Left" Margin="505,460,0,0" VerticalAlignment="Top" Width="119" Height="22" Click="SaveButton_Click" Grid.ColumnSpan="4" FontSize="10.667"/>
         <Button x:Name="button" Content="Exit" Margin="5,460,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="75" Click="button_Click_1"/>
         <Button x:Name="button1" Content="Launch" Grid.Column="4" HorizontalAlignment="Left" Margin="114.6,459,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click" Height="23"/>
+
     </Grid>
 </Window>
 
